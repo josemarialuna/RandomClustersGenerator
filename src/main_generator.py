@@ -64,7 +64,7 @@ def generate_columns(mean_features, instances=INSTANCES):
     clusters_list = []
     while j < SIGNIFICANT_NUM:
         x_list = []
-        for i in range(0, len(mean_features)):
+        for i, _ in enumerate(mean_features):
             values = np.random.normal(
                 mean_features[i][j], STANDARD_DEV, instances)
             x_list.append(values)
@@ -74,12 +74,12 @@ def generate_columns(mean_features, instances=INSTANCES):
         clusters_list.append(numpy_list)
 
     dummy_list = []
-    for c in range(0, DUMMY_NUM):
-        rng = np.random.default_rng()
+    for c in range(0, DUMMY_NUM):        
         a = 0
-        b = CLUSTERS_NUM * 2
-        random_dummy_array = np.random.normal(a, b, ROWS)
-        #random_dummy_array = (b - a) * rng.random(size=ROWS) + a
+        b = 1#CLUSTERS_NUM * 2
+        # random_dummy_array = np.random.normal(a, b, ROWS)
+        rng = np.random.default_rng()
+        random_dummy_array = (b - a) * rng.random(size=ROWS) + a
         dummy_list.append(random_dummy_array)
 
     res = clusters_list + dummy_list
@@ -105,13 +105,17 @@ def get_random_number(min: int, max: int):
     rng = np.random.default_rng()
     return int((max - min) * rng.random() + min)
 
+
 def generate_dataset():
     """It calls the functions in order to create the dataset."""
+    print('Generating dataset...')
     random_array = generate_random_numbers(CLUSTERS_NUM)
     bin_array = binarize_numbers(random_array)
     mean_features = define_clusters(bin_array)
+    print('Dataset generated succesfully!\n')
 
     return generate_columns(mean_features)
+
 
 def save_dataset(data):
     """It saves the numpy array into a file with the following name: k2_100i_s2-d8-sd0.05.csv
@@ -122,18 +126,20 @@ def save_dataset(data):
     -d is the number of dummy columns
     -sd is the value of the standard deviation of the normal distribution
     """
+    print(f'Saving dataset into {DATA_PATH} folder...')
     if not os.path.exists(DATA_PATH):
         os.makedirs(DATA_PATH)
 
     # filename => k2_100i_s2-d8-sd0.05.csv
     filename = f'k{CLUSTERS_NUM}_{INSTANCES}i_s{SIGNIFICANT_NUM}-d{DUMMY_NUM}-sd{STANDARD_DEV}.csv'
     np.savetxt(f'{DATA_PATH}\\{filename}', data, delimiter=",")
+    print('Saved succesfully!')
+
 
 def main():
     """Main function"""
     data = generate_dataset()
     save_dataset(data)
-    
 
 
 if __name__ == "__main__":
