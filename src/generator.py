@@ -3,8 +3,8 @@ import numpy as np
 
 DATA_PATH = "data"
 
-CLUSTER_NUM = 2
-INSTANCES = 10     # INSTANCES per cluster
+CLUSTER_NUM = 4
+INSTANCES = 500     # INSTANCES per cluster
 
 CLUSTERS_COL_NUM = 2
 DUMMY_COL_NUM = 8
