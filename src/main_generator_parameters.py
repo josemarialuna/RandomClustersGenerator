@@ -1,25 +1,27 @@
+import csv
 import os
+from collections import namedtuple
 import numpy as np
 
 ### CONFIGURATION PARAMETERS ###
-
 DATA_PATH = "data"  # name of the result path
-
-CLUSTERS_NUM = 2    # Max value must be = SIGNIFICANT_NUM^2
-INSTANCES = 100     # INSTANCES per cluster
-
-SIGNIFICANT_NUM = 8  # Number of significant columns. Please, pay attention to CLUSTER_NUM
-DUMMY_NUM = 2       # Number of dummy columns
-
-STANDARD_DEV = 0.10  # Standard Deviation for the Normal Distribution of data
-
+INSTANCES = 100
+STANDARD_DEV = 0.10
 #################################
 
-FEATURES = SIGNIFICANT_NUM + DUMMY_NUM
-ROWS = INSTANCES * CLUSTERS_NUM
+Config = namedtuple('Config', 'name, clusters_num, instances, significant_num, dummy_num, standard_dev')
+
+def get_config_vars():
+    config = list()
+    with open('config\\datasets_values.csv') as csvfile:
+        reader = csv.reader(csvfile, delimiter='\t')        
+        for name, clusters_num, significant_num, dummy_num in reader:            
+            config.append(Config(name, int(clusters_num), INSTANCES, int(significant_num), int(dummy_num), STANDARD_DEV))
+    return config
 
 
-def generate_random_numbers(clusters_num=CLUSTERS_NUM):
+
+def generate_random_numbers(clusters_num):
     """Generate a list of random number without repetition. The list has the same size as the number of clusters given."""
     l_random_values = []
     numbers = set()
@@ -33,11 +35,11 @@ def generate_random_numbers(clusters_num=CLUSTERS_NUM):
     return l_random_values
 
 
-def binarize_numbers(list_numbers: list):
+def binarize_numbers(list_numbers: list, significant_num):
     """Returns a list of binarized number from the list of numbers given.   """
     list_bin = []
     for num in list_numbers:
-        binarized = convert_to_binary(num)
+        binarized = convert_to_binary(num, significant_num)
         list_bin.append(binarized)
     return list_bin
 
@@ -55,18 +57,18 @@ def define_clusters(list_bin):
     return res
 
 
-def generate_columns(mean_features, instances=INSTANCES):
+def generate_columns(mean_features, config):
     """
     It receives a list of list with the values of the means for creating the clusters. It return a numpy array 
     with SIGNIFICANT_NUM + DUMMY_NUM columns.
     """
     j = 0
     clusters_list = []
-    while j < SIGNIFICANT_NUM:
+    while j < config.significant_num:
         x_list = []
         for i, _ in enumerate(mean_features):
             values = np.random.normal(
-                mean_features[i][j], STANDARD_DEV, instances)
+                mean_features[i][j], config.standard_dev, config.instances)
             x_list.append(values)
             #print(f'x_list: {x_list}')
         j += 1
@@ -74,12 +76,12 @@ def generate_columns(mean_features, instances=INSTANCES):
         clusters_list.append(numpy_list)
 
     dummy_list = []
-    for c in range(0, DUMMY_NUM):        
+    for c in range(0, config.dummy_num):        
         a = 0
         b = 1#CLUSTERS_NUM * 2
         # random_dummy_array = np.random.normal(a, b, ROWS)
         rng = np.random.default_rng()
-        random_dummy_array = (b - a) * rng.random(size=ROWS) + a
+        random_dummy_array = (b - a) * rng.random(size=config.clusters_num*config.instances) + a
         dummy_list.append(random_dummy_array)
 
     res = clusters_list + dummy_list
@@ -94,7 +96,7 @@ def get_value(number: str):
     return 0.25 if number == '0' else 0.75
 
 
-def convert_to_binary(number: int, features_number=SIGNIFICANT_NUM):
+def convert_to_binary(number: int, features_number):
     """Returns the given number in binary with a padding of feature_number"""
     binary = format(number, f'0{features_number}b')
     return binary
@@ -106,18 +108,18 @@ def get_random_number(min: int, max: int):
     return int((max - min) * rng.random() + min)
 
 
-def generate_dataset():
+def generate_dataset(config):
     """It calls the functions in order to create the dataset."""
     print('Generating dataset...')
-    random_array = generate_random_numbers(CLUSTERS_NUM)
-    bin_array = binarize_numbers(random_array)
+    random_array = generate_random_numbers(config.clusters_num)
+    bin_array = binarize_numbers(random_array, config.significant_num)
     mean_features = define_clusters(bin_array)
     print('Dataset generated succesfully!\n')
 
-    return generate_columns(mean_features)
+    return generate_columns(mean_features, config)
 
 
-def save_dataset(data):
+def save_dataset(data, config):
     """It saves the numpy array into a file with the following name: k2_100i_s2-d8-sd0.05.csv
     where: 
     -k is number of clusters.
@@ -131,15 +133,29 @@ def save_dataset(data):
         os.makedirs(DATA_PATH)
 
     # filename => k2_100i_s2-d8-sd0.05.csv
-    filename = f'k{CLUSTERS_NUM}_{INSTANCES}i_s{SIGNIFICANT_NUM}-d{DUMMY_NUM}-sd{STANDARD_DEV}.csv'
+    filename = f'k{config.clusters_num}_{config.instances}i_s{config.significant_num}-d{config.dummy_num}-sd{config.standard_dev}.csv'
     np.savetxt(f'{DATA_PATH}\\{filename}', data, delimiter=",")
     print(f'File "{filename}" saved succesfully!')
 
 
 def main():
     """Main function"""
-    data = generate_dataset()
-    save_dataset(data)
+    # CLUSTERS_NUM = config['clusters_num']    # Max value must be = SIGNIFICANT_NUM^2
+    # INSTANCES = config['instances']     # INSTANCES per cluster
+
+    # SIGNIFICANT_NUM = config['significant_num']  # Number of significant columns. Please, pay attention to CLUSTER_NUM
+    # DUMMY_NUM = config['dummy_num']       # Number of dummy columns
+
+    # STANDARD_DEV = 0.10  # Standard Deviation for the Normal Distribution of data
+
+    # FEATURES = SIGNIFICANT_NUM + DUMMY_NUM
+    # ROWS = INSTANCES * CLUSTERS_NUM
+
+    config = get_config_vars()
+    for c in config:
+        print(c)
+        data = generate_dataset(c)
+        save_dataset(data, c)
 
 
 if __name__ == "__main__":
