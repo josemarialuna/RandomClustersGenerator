@@ -6,7 +6,7 @@ import numpy as np
 ### CONFIGURATION PARAMETERS ###
 DATA_PATH = "data"  # name of the result path
 INSTANCES = 100
-STANDARD_DEV = 0.10
+STANDARD_DEV = 0.05
 #################################
 
 Config = namedtuple('Config', 'name, clusters_num, instances, significant_num, dummy_num, standard_dev')

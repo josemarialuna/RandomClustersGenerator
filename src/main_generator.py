@@ -6,12 +6,12 @@ import numpy as np
 DATA_PATH = "data"  # name of the result path
 
 CLUSTERS_NUM = 2    # Max value must be = SIGNIFICANT_NUM^2
-INSTANCES = 100     # INSTANCES per cluster
+INSTANCES = 50     # INSTANCES per cluster
 
-SIGNIFICANT_NUM = 8  # Number of significant columns. Please, pay attention to CLUSTER_NUM
-DUMMY_NUM = 2       # Number of dummy columns
+SIGNIFICANT_NUM = 3  # Number of significant columns. Please, pay attention to CLUSTER_NUM
+DUMMY_NUM = 3       # Number of dummy columns
 
-STANDARD_DEV = 0.10  # Standard Deviation for the Normal Distribution of data
+STANDARD_DEV = 0.05  # Standard Deviation for the Normal Distribution of data
 
 #################################
 
