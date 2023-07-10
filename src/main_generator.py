@@ -1,17 +1,20 @@
 import os
 import numpy as np
+import pandas as pd
 
 ### CONFIGURATION PARAMETERS ###
 
 DATA_PATH = "data"  # name of the result path
 
-CLUSTERS_NUM = 2    # Max value must be = SIGNIFICANT_NUM^2
-INSTANCES = 50     # INSTANCES per cluster
+CLUSTERS_NUM = 4    # Max value must be = SIGNIFICANT_NUM^2
+INSTANCES = 10     # INSTANCES per cluster
 
 SIGNIFICANT_NUM = 3  # Number of significant columns. Please, pay attention to CLUSTER_NUM
 DUMMY_NUM = 3       # Number of dummy columns
 
 STANDARD_DEV = 0.05  # Standard Deviation for the Normal Distribution of data
+
+ADD_CLUSTERING_LABEL = True
 
 #################################
 
@@ -116,9 +119,21 @@ def generate_dataset():
 
     return generate_columns(mean_features)
 
+def get_column_names():
+    return [f's{n}' for n in range(SIGNIFICANT_NUM)] + [f'd{d}' for d in range(DUMMY_NUM)]
+
+def add_clustering_label(data):
+    """It adds the clustering label to the data"""
+    data['n'] = np.arange(data.shape[0])
+    data['cluster'] = data['n'].apply(get_cluster_number)
+    data.drop(['n'], axis=1, inplace=True)
+    return data
+
+def get_cluster_number(n):
+    return n//INSTANCES
 
 def save_dataset(data):
-    """It saves the numpy array into a file with the following name: k2_100i_s2-d8-sd0.05.csv
+    """It saves the pandas Dataframe into a file with the following name: k2_100i_s2-d8-sd0.05.csv
     where: 
     -k is number of clusters.
     -i is the number of instances of each cluster
@@ -132,13 +147,21 @@ def save_dataset(data):
 
     # filename => k2_100i_s2-d8-sd0.05.csv
     filename = f'k{CLUSTERS_NUM}_{INSTANCES}i_s{SIGNIFICANT_NUM}-d{DUMMY_NUM}-sd{STANDARD_DEV}.csv'
-    np.savetxt(f'{DATA_PATH}\\{filename}', data, delimiter=",")
+    data.to_csv(f'{DATA_PATH}\\{filename}', sep=",", index=False)
     print(f'File "{filename}" saved succesfully!')
 
 
 def main():
     """Main function"""
     data = generate_dataset()
+
+    columns = get_column_names()
+    data = pd.DataFrame(data, columns = columns)
+
+
+    if ADD_CLUSTERING_LABEL:
+        data = add_clustering_label(data)
+
     save_dataset(data)
 
 

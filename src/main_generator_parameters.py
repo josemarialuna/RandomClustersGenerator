@@ -2,11 +2,14 @@ import csv
 import os
 from collections import namedtuple
 import numpy as np
+import pandas as pd
 
 ### CONFIGURATION PARAMETERS ###
 DATA_PATH = "data"  # name of the result path
 INSTANCES = 100
-STANDARD_DEV = 0.05
+STANDARD_DEV = 0.1
+
+ADD_CLUSTERING_LABEL = True
 #################################
 
 Config = namedtuple('Config', 'name, clusters_num, instances, significant_num, dummy_num, standard_dev')
@@ -118,6 +121,19 @@ def generate_dataset(config):
 
     return generate_columns(mean_features, config)
 
+def get_column_names(config):
+    return [f's{n}' for n in range(config.significant_num)] + [f'd{d}' for d in range(config.dummy_num)]
+
+def add_clustering_label(data):
+    """It adds the clustering label to the data"""
+    data['n'] = np.arange(data.shape[0])
+    data['cluster'] = data['n'].apply(get_cluster_number)
+    data.drop(['n'], axis=1, inplace=True)
+    return data
+
+def get_cluster_number(n):
+    return n//INSTANCES
+
 
 def save_dataset(data, config):
     """It saves the numpy array into a file with the following name: k2_100i_s2-d8-sd0.05.csv
@@ -134,7 +150,7 @@ def save_dataset(data, config):
 
     # filename => k2_100i_s2-d8-sd0.05.csv
     filename = f'k{config.clusters_num}_{config.instances}i_s{config.significant_num}-d{config.dummy_num}-sd{config.standard_dev}.csv'
-    np.savetxt(f'{DATA_PATH}\\{filename}', data, delimiter=",")
+    data.to_csv(f'{DATA_PATH}\\{filename}', sep=",", index=False)
     print(f'File "{filename}" saved succesfully!')
 
 
@@ -155,6 +171,14 @@ def main():
     for c in config:
         print(c)
         data = generate_dataset(c)
+
+        columns = get_column_names(c)
+        data = pd.DataFrame(data, columns = columns)
+
+
+        if ADD_CLUSTERING_LABEL:
+            data = add_clustering_label(data)
+
         save_dataset(data, c)
 
 
