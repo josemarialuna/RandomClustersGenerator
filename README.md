@@ -30,14 +30,40 @@ This project consists of three main files, each serving a specific purpose:
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## How to use
+### Configuration Parameters in `main_generator.py`
+- **DATA_PATH:**  The name of the result path where generated datasets will be saved. Example: `DATA_PATH = "data"`
+- **CLUSTERS_NUM:** The number of clusters to be generated. The maximum value must be equal to `SIGNIFICANT_NUM^2`. Example: `CLUSTERS_NUM = 4`
+- **INSTANCES:**  The number of instances per cluster in the generated datasets. Example: `INSTANCES = 10`
+- **SIGNIFICANT_NUM:** The number of significant columns forming the clusters. Pay attention to `CLUSTERS_NUM` as it must satisfy the condition `CLUSTERS_NUM = SIGNIFICANT_NUM^2`. Example: `SIGNIFICANT_NUM = 3`
+- **DUMMY_NUM:**  The number of dummy columns to be included, adding variability and noise to the datasets. Example: `DUMMY_NUM = 3`
+- **STANDARD_DEV:** The standard deviation for the Normal Distribution of data, influencing the spread of the generated values. Example: `STANDARD_DEV = 0.05`
 
+### Configuration Parameters in `main_generator_parameters.py`
+The `main_generator_parameters.py` script generates datasets based on configuration parameters specified in a CSV file. The CSV file should have the following columns:
+- **clusters_num:** The number of clusters to be generated. It influences the structure of the datasets. Example: `clusters_num = 4`
+- **significant_num:** The number of significant columns forming the clusters. It must satisfy the condition `clusters_num = significant_num^2`. Example: `significant_num = 3`
+- **dummy_num:** Description: The number of dummy columns to be included, adding variability and noise to the datasets. Example: `dummy_num = 3`
+- **standard_dev:** The standard deviation for the Normal Distribution of data, influencing the spread of the generated values. Example: `standard_dev = 0.05`
+
+To use this script, create a CSV file with these columns and corresponding values, and then run the script by specifying the path to your CSV file.
+
+#### Example CSV file:
+
+```csv
+clusters_num,significant_num,dummy_num,standard_dev
+2,2,1,0.10
+4,3,2,0.05
+```
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## Resulting Datasets Examples
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 # Contribution
-
 🎉 We welcome and encourage community contributions to enhance this project. Whether you want to report issues, propose new features, or submit improvements, your collaboration is valuable.
 
 ## How to Contribute
-
 1. **Fork the Repository:**
    - Fork the repository to your GitHub account.
 
@@ -47,9 +73,9 @@ This project consists of three main files, each serving a specific purpose:
    git clone https://github.com/josemarialuna/RandomClustersGenerator.git
    cd RandomClustersGenerator
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 # License
-
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
