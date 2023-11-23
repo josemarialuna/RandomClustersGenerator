@@ -1,5 +1,10 @@
 <a name="readme-top"></a>
 # Random Clusters Generator
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![MIT License][license-shield]][license-url]
 
 Generate datasets with defined clusters using a normal distribution. This specialized tool allows you to customize data creation, specifying the number of significant columns forming the clusters. Additionally, it provides the option to include dummy columns, adding variability and noise to your datasets.
 
