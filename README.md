@@ -8,6 +8,10 @@
 
 Generate datasets with defined clusters using a normal distribution. This specialized tool allows you to customize data creation, specifying the number of significant columns forming the clusters. Additionally, it provides the option to include dummy columns, adding variability and noise to your datasets.
 
+<p align="center">
+  <img alt="4 clusters with 2 significative features" src="https://github.com/josemarialuna/RandomClustersGenerator/blob/main/img/k4_s2_d2.png" width="40%"><img alt="Representation of the two dummies features" src="https://github.com/josemarialuna/RandomClustersGenerator/blob/main/img/k4_s2_d2_dummies.png" width="40%">
+</p>
+
 ## Key Features:
 
 - **Defined Clusters:** Create datasets with clearly defined clusters, ideal for applying clustering algorithms.
@@ -56,8 +60,8 @@ To use this script, create a CSV file with these columns and corresponding value
 
 ```csv
 clusters_num,significant_num,dummy_num,standard_dev
-2,2,1,0.10
-4,3,2,0.05
+4,2,2,0.10
+4,6,3,0.05
 ```
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
