@@ -90,3 +90,16 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 * **José María Luna-Romera** - [Website](http://www.josemarialuna.com)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[contributors-shield]: https://img.shields.io/github/contributors/josemarialuna/RandomClustersGenerator.svg?style=for-the-badge
+[contributors-url]: https://github.com/josemarialuna/RandomClustersGenerator/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/josemarialuna/RandomClustersGenerator.svg?style=for-the-badge
+[forks-url]: https://github.com/josemarialuna/RandomClustersGenerator/network/members
+[stars-shield]: https://img.shields.io/github/stars/josemarialuna/RandomClustersGenerator.svg?style=for-the-badge
+[stars-url]: https://github.com/josemarialuna/RandomClustersGenerator/stargazers
+[issues-shield]: https://img.shields.io/github/issues/josemarialuna/RandomClustersGenerator.svg?style=for-the-badge
+[issues-url]: https://github.com/josemarialuna/RandomClustersGenerator/issues
+[license-shield]: https://img.shields.io/github/license/josemarialuna/RandomClustersGenerator.svg?style=for-the-badge
+[license-url]: https://github.com/josemarialuna/RandomClustersGenerator/blob/master/LICENSE.txt
