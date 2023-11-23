@@ -7,8 +7,6 @@ import pandas as pd
 ### CONFIGURATION PARAMETERS ###
 DATA_PATH = "data"  # name of the result path
 INSTANCES = 100
-STANDARD_DEV = 0.1
-
 ADD_CLUSTERING_LABEL = True
 #################################
 
@@ -17,9 +15,12 @@ Config = namedtuple('Config', 'name, clusters_num, instances, significant_num, d
 def get_config_vars():
     config = list()
     with open('config\\datasets_values.csv') as csvfile:
-        reader = csv.reader(csvfile, delimiter='\t')        
-        for name, clusters_num, significant_num, dummy_num in reader:            
-            config.append(Config(name, int(clusters_num), INSTANCES, int(significant_num), int(dummy_num), STANDARD_DEV))
+        reader = csv.reader(csvfile, delimiter=';') 
+        next(reader)       
+        for clusters_num, significant_num, dummy_num, standard_dev in reader:
+            #name => k2_100i_s2-d8-sd0.05
+            name = f'k{clusters_num}_{INSTANCES}i_s{significant_num}-d{dummy_num}-sd{standard_dev}'      
+            config.append(Config(name, int(clusters_num), INSTANCES, int(significant_num), int(dummy_num), float(standard_dev)))
     return config
 
 
@@ -69,9 +70,8 @@ def generate_columns(mean_features, config):
     clusters_list = []
     while j < config.significant_num:
         x_list = []
-        for i, _ in enumerate(mean_features):
-            values = np.random.normal(
-                mean_features[i][j], config.standard_dev, config.instances)
+        for i, _ in enumerate(mean_features):            
+            values = np.random.normal(mean_features[i][j], config.standard_dev, config.instances)
             x_list.append(values)
             #print(f'x_list: {x_list}')
         j += 1
@@ -149,23 +149,13 @@ def save_dataset(data, config):
         os.makedirs(DATA_PATH)
 
     # filename => k2_100i_s2-d8-sd0.05.csv
-    filename = f'k{config.clusters_num}_{config.instances}i_s{config.significant_num}-d{config.dummy_num}-sd{config.standard_dev}.csv'
+    filename = f'{config.name}.csv'
     data.to_csv(f'{DATA_PATH}\\{filename}', sep=",", index=False)
     print(f'File "{filename}" saved succesfully!')
 
 
 def main():
     """Main function"""
-    # CLUSTERS_NUM = config['clusters_num']    # Max value must be = SIGNIFICANT_NUM^2
-    # INSTANCES = config['instances']     # INSTANCES per cluster
-
-    # SIGNIFICANT_NUM = config['significant_num']  # Number of significant columns. Please, pay attention to CLUSTER_NUM
-    # DUMMY_NUM = config['dummy_num']       # Number of dummy columns
-
-    # STANDARD_DEV = 0.10  # Standard Deviation for the Normal Distribution of data
-
-    # FEATURES = SIGNIFICANT_NUM + DUMMY_NUM
-    # ROWS = INSTANCES * CLUSTERS_NUM
 
     config = get_config_vars()
     for c in config:
@@ -174,7 +164,6 @@ def main():
 
         columns = get_column_names(c)
         data = pd.DataFrame(data, columns = columns)
-
 
         if ADD_CLUSTERING_LABEL:
             data = add_clustering_label(data)
