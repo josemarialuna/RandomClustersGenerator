@@ -65,10 +65,6 @@ clusters_num,significant_num,dummy_num,standard_dev
 ```
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## Resulting Datasets Examples
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 # Contribution
 🎉 We welcome and encourage community contributions to enhance this project. Whether you want to report issues, propose new features, or submit improvements, your collaboration is valuable.
 
