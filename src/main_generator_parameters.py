@@ -14,7 +14,7 @@ Config = namedtuple('Config', 'name, clusters_num, instances, significant_num, d
 
 def get_config_vars():
     config = list()
-    with open('config\\datasets_values.csv') as csvfile:
+    with open('config\\new_data.csv') as csvfile:
         reader = csv.reader(csvfile, delimiter=';') 
         next(reader)       
         for clusters_num, significant_num, dummy_num, standard_dev in reader:
