@@ -34,6 +34,7 @@ This project consists of three main files, each serving a specific purpose:
 
 - **`main_generator.py`**: This file is responsible for generating datasets based on the parameters provided. It allows users to create customized datasets with defined clusters using a normal distribution. Users can specify the number of significant columns forming the clusters and choose to include additional dummy columns for added variability.
 - **`main_generator_parameters.py`**: This file generates datasets based on parameters specified in a CSV file. Users can provide a CSV file containing configuration details, and the script will use this information to create datasets accordingly.
+- **`config_gen.py`**: This file generates a CSV file in the `config` folder containing various combinations of data parameters, including the number of clusters, the number of significant features, the number of dummy features, and standard deviation values. 
 - **`add_dummy_columns.py`**: The purpose of this file is to add dummy columns to an existing CSV file. It takes a CSV file as input and appends additional columns with dummy data, introducing variability and noise to the dataset.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
