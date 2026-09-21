@@ -31,3 +31,19 @@ directory names from library paths. These are instrumentation corrections; no
 parameters, seeds, models, endpoints or selection rules changed. Repeat the exact
 same pilot in a new output directory and compare every non-timing fit value with
 the initial execution before archiving the portable evidence package.
+
+## 2026-09-21 — Completed pilot and presentation audit
+
+Portable run completed: 420 datasets, 6,720 fits, 2,520 selections; zero failed
+fits/selections and zero warnings. Every non-timing fit/selection/diagnostic value
+matched the first execution exactly. Regenerated all dataset and label hashes.
+Both executions represent the same 20 families, not 40 independent replicates.
+
+Visual inspection prompted shorter y-axis labels and shared axis scales for
+comparability. Only report rendering changed after the run; analysis source hashes
+are separately recorded. No model, metric, endpoint or experimental setting changed.
+Interpretation and candidate next-stage questions are recorded in FINDINGS.es.md.
+
+Copied the protocol's two referenced files next to its archived snapshot so its
+relative links resolve. The added context copies are covered by the analysis
+manifest; no original run artifact was edited. Future runs copy them automatically.

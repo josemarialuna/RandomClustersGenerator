@@ -49,3 +49,4 @@ jobs:
       - run: python -m pytest
       - run: python -m ruff check .
       - run: python -m ruff format --check .
+      - run: python research/verify_artifacts.py research/results/pilot-v1

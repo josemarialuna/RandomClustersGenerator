@@ -80,6 +80,7 @@ def line_figure(summary, path, *, metric, ylabel, by_method):
         len(preprocessings),
         len(stds),
         squeeze=False,
+        sharey=True,
         figsize=(4.0 * len(stds), 3.1 * len(preprocessings)),
     )
     colors = {"kmeans": "#087e8b", "ward": "#b44b15", "truth": "#087e8b"}
@@ -122,7 +123,7 @@ def line_figure(summary, path, *, metric, ylabel, by_method):
                     )
             ax.set_title(f"σ = {std:g} · {preprocessing}")
             ax.set_xlabel("Added irrelevant dimensions")
-            ax.set_ylabel(ylabel)
+            ax.set_ylabel(ylabel if column == 0 else "")
             ax.grid(alpha=0.2)
     handles, labels = axes[0, 0].get_legend_handles_labels()
     fig.legend(handles, labels, loc="lower center", ncol=2 if by_method else 2, frameon=False)
@@ -135,7 +136,9 @@ def line_figure(summary, path, *, metric, ylabel, by_method):
 
 def gallery_figure(output, config, figures):
     stds = config["standard_deviations"]
-    fig, axes = plt.subplots(1, len(stds), squeeze=False, figsize=(4 * len(stds), 3.6))
+    fig, axes = plt.subplots(
+        1, len(stds), squeeze=False, sharex=True, sharey=True, figsize=(4 * len(stds), 3.6)
+    )
     for ax, std in zip(axes[0], stds):
         table = pd.read_csv(output / "gallery" / f"r000_sd{std:g}_q0_none.csv")
         if config["features"] < 2:
@@ -232,7 +235,7 @@ def report(output: Path):
         truth_summary,
         figures / "truth_silhouette",
         metric="silhouette",
-        ylabel="Silhouette of fixed generating labels",
+        ylabel="Silhouette (fixed labels)",
         by_method=False,
     )
     gallery_figure(output, config, figures)
@@ -342,6 +345,11 @@ PDF de las figuras disponible junto a cada PNG.
 """
     (output / "REPORT.es.md").write_text(report_text, encoding="utf-8", newline="\n")
     derived = list(artifacts) + ["REPORT.es.md"]
+    derived += [
+        name
+        for name in ("pilot.json", "RELATED_WORK.md")
+        if (output / name).exists() and name not in manifest["output_sha256"]
+    ]
     derived += [
         str(path.relative_to(output)).replace("\\", "/") for path in sorted(figures.iterdir())
     ]
