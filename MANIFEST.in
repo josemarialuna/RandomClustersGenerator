@@ -1,2 +1,3 @@
 include README.es.md
 recursive-include examples *.csv *.json
+include research/*.md research/*.json research/*.txt
