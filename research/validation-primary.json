@@ -5,7 +5,9 @@
   "clusters": 4,
   "samples": 100,
   "features": 2,
-  "standard_deviations": 0.05,
+  "standard_deviations": [
+    0.05
+  ],
   "noise_counts": [
     0,
     2
