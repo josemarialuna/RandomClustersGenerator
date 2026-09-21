@@ -1,0 +1,2 @@
+include README.es.md
+recursive-include examples *.csv *.json
