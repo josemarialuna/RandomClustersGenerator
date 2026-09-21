@@ -20,3 +20,14 @@
   not use the scientific pilot's master seed or represent reported results.
 - Freeze a source commit before running the scientific configuration. Any
   post-run amendments must be logged below and distinguished from planned work.
+
+## 2026-09-21 — Artifact portability amendment
+
+During the first execution's provenance audit, identified Windows newline
+translation that would invalidate byte hashes after Git normalizes text files.
+Standardized CSV/JSON/JSONL/report newlines to LF and added regression coverage.
+Also moved threadpool metadata capture inside the thread limit and omitted local
+directory names from library paths. These are instrumentation corrections; no
+parameters, seeds, models, endpoints or selection rules changed. Repeat the exact
+same pilot in a new output directory and compare every non-timing fit value with
+the initial execution before archiving the portable evidence package.
