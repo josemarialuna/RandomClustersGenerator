@@ -4,6 +4,11 @@ Esta carpeta inicia el trabajo hacia una posible publicación. Contiene un
 [protocolo previo al análisis](PROTOCOL.md), una [revisión inicial de antecedentes](RELATED_WORK.md)
 y una [configuración ejecutable](pilot.json). No es un manuscrito listo para enviar.
 
+**Ya ejecutado:** [primeros hallazgos](FINDINGS.es.md),
+[informe completo](results/pilot-v1/REPORT.es.md) y
+[resultados crudos](results/pilot-v1/). Los 420 datasets y 6.720 ajustes se
+completaron sin fallos. Las conclusiones siguen siendo exploratorias.
+
 El antecedente de McCrory y Thomas (2024) obliga a afinar la aportación: estudiar
 ruido y métricas ya se ha hecho. Este piloto evalúa la viabilidad de experimentos
 emparejados, ruido con varianza comparable y selección del número de grupos.
@@ -21,6 +26,17 @@ El directorio de salida debe ser nuevo; una ejecución anterior nunca se sobresc
 La ejecución imprime progreso por réplica. Usa un hilo y procesa los datasets
 secuencialmente. Para una repetición, utiliza otro directorio. El tiempo dependerá
 del ordenador; una prueba reducida está cubierta por los tests.
+
+Para reproducir el entorno archivado con Python 3.12, instala primero
+`python -m pip install -r research/environment-pilot.txt` y después el repositorio
+en la revisión indicada por el manifiesto. El archivo fija las dependencias del
+piloto, no constituye una promesa de compatibilidad con todas las versiones de Python.
+
+Puedes comprobar la integridad de los resultados incluidos sin instalar esas dependencias:
+
+```bash
+python research/verify_artifacts.py research/results/pilot-v1
+```
 
 ## Qué entra y qué sale
 
