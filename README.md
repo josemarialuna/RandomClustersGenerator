@@ -295,6 +295,10 @@ reproducing historical results.
 
 ## Development and contributions
 
+An exploratory paired-noise study is available in [research/](research/README.md),
+with its protocol, related-work audit, optional dependencies and reproducible runner.
+It does not alter the production generator or establish a publication claim.
+
 ```bash
 python -m pip install -e ".[dev]"
 python -m pytest

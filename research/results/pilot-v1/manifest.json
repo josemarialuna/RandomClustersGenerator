@@ -1,0 +1,128 @@
+{
+  "status": "complete",
+  "design_version": "paired-noise-v1",
+  "config": {
+    "study_id": "paired-noise-pilot-v1",
+    "master_seed": 20260921,
+    "replicates": 20,
+    "clusters": 4,
+    "samples": 100,
+    "features": 2,
+    "standard_deviations": [
+      0.05,
+      0.15,
+      0.3
+    ],
+    "noise_counts": [
+      0,
+      2,
+      8,
+      32
+    ],
+    "noise_distributions": [
+      "uniform",
+      "normal"
+    ],
+    "preprocessing": [
+      "raw",
+      "standardized"
+    ],
+    "candidate_k": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "kmeans_n_init": 10,
+    "kmeans_max_iter": 300
+  },
+  "config_sha256": "b993e58d29c05f54f6bbcc1b3710826baeee8b3a45647b2d96aa25a49d958d9e",
+  "protocol_sha256": "636adcac2f856df20617584449cefd486000029a0a228437010ba195c6b592e1",
+  "source_commit": "a6cec8dc51e6ea1cb05db2d1e92dd12bc045d0bb",
+  "git_dirty": false,
+  "source_sha256": {
+    "__init__.py": "f0819ddd5a47c37375cd8df32b7a003ee97de1852cccaf114668449d550a865a",
+    "__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+    "cli.py": "2191e5b5175ff9225774d92169b168f070f2eeeee41203c03502ff0256381e48",
+    "core.py": "0cd6a9ba517d3e583227f38c127cc0946ce19af29052ddfce53da0ff30279858",
+    "io.py": "3f4b3cbe5dfaea4f0e73de530b67313f7495ee8e65f16f7caca0322ddbe74278",
+    "research/__init__.py": "45e23879057db9331fd94c5c838b6485b73faf61c23a7c71947c29ff8bf7dc4b",
+    "research/design.py": "fe35df34fba8947b052cfdc957921405c1281ba947b8b717187f481c7909ccde",
+    "research/report.py": "afc98e61c1f65b47e4ec8aa92cd12ee236a5e1a7fa65ae727efcb04885152c6c",
+    "research/run.py": "33476531f80349ae9ae2e6eaa7722f25fa9b241ab07c652bd0a4b0a966fe0fb3"
+  },
+  "versions": {
+    "random-clusters-generator": "1.0.0",
+    "numpy": "2.5.3",
+    "pandas": "2.3.3",
+    "scipy": "1.18.1",
+    "scikit-learn": "1.9.1",
+    "matplotlib": "3.11.2",
+    "threadpoolctl": "3.7.0"
+  },
+  "python": "3.12.4",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "thread_limit": 1,
+  "threadpools": [
+    {
+      "user_api": "blas",
+      "internal_api": "openblas",
+      "num_threads": 1,
+      "prefix": "libscipy_openblas",
+      "filepath": "libscipy_openblas64_-ed4f167a5330424524f45258e7ca2c8d.dll",
+      "version": "0.3.34.106.0",
+      "threading_layer": "pthreads",
+      "architecture": "SkylakeX"
+    },
+    {
+      "user_api": "openmp",
+      "internal_api": "openmp",
+      "num_threads": 1,
+      "prefix": "vcomp",
+      "filepath": "vcomp140.dll",
+      "version": null
+    },
+    {
+      "user_api": "blas",
+      "internal_api": "openblas",
+      "num_threads": 1,
+      "prefix": "libscipy_openblas",
+      "filepath": "libscipy_openblas-197ee2fc9b4d071f7e048078cac74115.dll",
+      "version": "0.3.31.dev",
+      "threading_layer": "pthreads",
+      "architecture": "SkylakeX"
+    }
+  ],
+  "expected_datasets": 420,
+  "expected_fits": 6720,
+  "expected_selections": 2520,
+  "observed": {
+    "datasets": 420,
+    "fits": 6720,
+    "selections": 2520,
+    "fit_failures": 0,
+    "selection_failures": 0,
+    "fit_warnings": 0
+  },
+  "elapsed_seconds": 94.92703550000078,
+  "output_sha256": {
+    "config.json": "b993e58d29c05f54f6bbcc1b3710826baeee8b3a45647b2d96aa25a49d958d9e",
+    "datasets.jsonl": "3174209480a3ef73f1939d9598a2c9e216c901a4a087063f213b7d165e8fceb8",
+    "fits.csv": "b5a689014f88de41158ea1b8cea7d156ca1f8239251336d5cbf635ed8a31bf16",
+    "gallery/r000_sd0.05_q0_none.csv": "f69cc4e9d44556fe4d60b2eddc633fceda36ff7623944b52927bfcbeeb61c1d8",
+    "gallery/r000_sd0.05_q32_normal.csv": "d62080898b2f77f1735f1e9654cf57a52b2c063182f1a12fba73c135f387e5ee",
+    "gallery/r000_sd0.05_q32_uniform.csv": "845ff7589599475ca6459ea4fe1361216ee33f8664b4169b9ac06972043802f9",
+    "gallery/r000_sd0.15_q0_none.csv": "c920da04221555a8e7fc749470ee7f384596e5fe13c74635944e732bd54e5271",
+    "gallery/r000_sd0.15_q32_normal.csv": "3e9df80e7cd4e1bde002cd1c54b121b50088627f529924da7ac535ed29b79cec",
+    "gallery/r000_sd0.15_q32_uniform.csv": "1d41c378af388d951f237d11ae7859b28a028c6f50f3669d6dd296f9192b0ff7",
+    "gallery/r000_sd0.3_q0_none.csv": "906f744a04d39e4737c55aded637319656269b8cb7bc91132486f2530031d3cb",
+    "gallery/r000_sd0.3_q32_normal.csv": "461ef9f9a84085cdfb938b16a7547e678d71a8ab55c2f57f639f8441b5f81929",
+    "gallery/r000_sd0.3_q32_uniform.csv": "6f90e5a945df8d6d7070e73cfbac2b4a5f25b0c66033fb92e0d4e4a7fa11c50a",
+    "protocol.md": "636adcac2f856df20617584449cefd486000029a0a228437010ba195c6b592e1",
+    "selections.csv": "65c22be35adc7983b01ec39c7af1234818b3f9556521dc61d0a320379f6089eb",
+    "truth_scores.csv": "e7ad019c530a861b0a8b8f35be6ae5d7bb411dea62c21082f6ba9b03dba7ab8e"
+  }
+}
