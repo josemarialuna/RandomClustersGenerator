@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "software": {
+    "random_clusters_generator": "1.0.0",
+    "python": "3.12.4",
+    "numpy": "2.5.3",
+    "pandas": "2.3.3"
+  },
+  "rng": "PCG64",
+  "rows": 4,
+  "columns": [
+    "s0",
+    "cluster"
+  ],
+  "csv_sha256": "bed267a093896b7fe282e9bb93fa4c27fb17659ffacc15a3427c2dd27c2299ad",
+  "operation": "generate",
+  "model": "binary-hypercube-gaussian-v1",
+  "parameters": {
+    "clusters": 2,
+    "samples": 2,
+    "features": 1,
+    "noise": 0,
+    "std": 0.0,
+    "seed": 42,
+    "shuffle": false,
+    "labels": true
+  },
+  "centers": [
+    [
+      0.75
+    ],
+    [
+      0.25
+    ]
+  ],
+  "varying_signal_features": [
+    "s0"
+  ]
+}

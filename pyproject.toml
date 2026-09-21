@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "random-clusters-generator"
+version = "1.0.0"
+description = "Reproducible synthetic clustering datasets with signal and noise features"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{name = "José María Luna-Romera"}]
+dependencies = ["numpy>=1.26,<3", "pandas>=2.2.3,<3"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Intended Audience :: Science/Research",
+    "Operating System :: OS Independent",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7", "ruff>=0.9", "build>=1"]
+
+[project.scripts]
+random-clusters = "random_clusters.cli:main"
+
+[project.urls]
+Repository = "https://github.com/josemarialuna/RandomClustersGenerator"
+Issues = "https://github.com/josemarialuna/RandomClustersGenerator/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+target-version = "py310"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP"]
