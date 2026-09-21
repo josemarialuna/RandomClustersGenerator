@@ -21,6 +21,12 @@ classifiers = [
 
 [project.optional-dependencies]
 dev = ["pytest>=7", "ruff>=0.9", "build>=1"]
+research = [
+    "scikit-learn>=1.4,<2",
+    "scipy>=1.11,<2",
+    "matplotlib>=3.8,<4",
+    "threadpoolctl>=3.2,<4",
+]
 
 [project.scripts]
 random-clusters = "random_clusters.cli:main"
