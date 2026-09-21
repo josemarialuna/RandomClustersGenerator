@@ -222,6 +222,9 @@ añade `samples` y `seed` y corrige las configuraciones que superen `2**features
 binario, se mezclan las filas por defecto y se usa un generador PCG64 con semilla.
 Para reproducir experimentos históricos, conserva el código de aquella revisión.
 
+El [piloto de investigación](research/README.md) incluye protocolo, antecedentes
+y experimentos reproducibles sobre variables irrelevantes y selección de grupos.
+
 Consulta la [documentación completa](README.md) para la API, desarrollo y pruebas.
 Licencia [MIT](LICENSE). Autor: José María Luna-Romera. Si lo utilizas en un trabajo,
 indica el repositorio, la revisión empleada, los parámetros y las semillas.
