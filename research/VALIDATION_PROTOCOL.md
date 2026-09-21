@@ -70,3 +70,5 @@ hashes; a separate source-based audit regenerates dataset fingerprints.
 The manuscript separates exploratory pilot evidence, independent validation,
 and robustness checks. It is a research-software case study, not a new clustering
 method. Negative or inconsistent robustness findings remain in the paper.
+
+Pre-execution correction: PowerShell serialized the singleton sigma list as a scalar. The first launch failed during configuration parsing, before any dataset or fit. Restore the JSON array; no design values or stopping rule changed.
