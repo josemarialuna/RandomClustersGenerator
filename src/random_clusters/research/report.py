@@ -340,7 +340,7 @@ diagnósticos por dataset: [datasets.jsonl](datasets.jsonl); metadatos y hashes:
 dispersiones, sin ruido y con el máximo ruido; no se seleccionaron ejemplos por resultados.
 PDF de las figuras disponible junto a cada PNG.
 """
-    (output / "REPORT.es.md").write_text(report_text, encoding="utf-8")
+    (output / "REPORT.es.md").write_text(report_text, encoding="utf-8", newline="\n")
     derived = list(artifacts) + ["REPORT.es.md"]
     derived += [
         str(path.relative_to(output)).replace("\\", "/") for path in sorted(figures.iterdir())
@@ -359,6 +359,7 @@ PDF de las figuras disponible junto a cada PNG.
         )
         + "\n",
         encoding="utf-8",
+        newline="\n",
     )
     print(f"Report: {output / 'REPORT.es.md'}")
 

@@ -172,7 +172,7 @@ def provenance(study, config_path, protocol):
         "python": platform.python_version(),
         "platform": platform.platform(),
         "thread_limit": 1,
-        "threadpools": threadpool_info(),
+        "threadpools": [],  # Recorded inside the actual thread-limited execution.
         "expected_datasets": study.dataset_count,
         "expected_fits": study.dataset_count
         * len(study.preprocessing)
@@ -188,7 +188,7 @@ def run(study, output: Path, config_path: Path, protocol: Path):
     (output / "config.json").write_bytes(config_path.read_bytes())
     (output / "protocol.md").write_bytes(protocol.read_bytes())
     manifest_path = output / "manifest.json"
-    manifest_path.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
+    manifest_path.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8", newline="\n")
     gallery = output / "gallery"
     gallery.mkdir()
     started = time.perf_counter()
@@ -204,14 +204,23 @@ def run(study, output: Path, config_path: Path, protocol: Path):
         (output / "fits.csv").open("w", newline="", encoding="utf-8") as fit_stream,
         (output / "selections.csv").open("w", newline="", encoding="utf-8") as selection_stream,
         (output / "truth_scores.csv").open("w", newline="", encoding="utf-8") as truth_stream,
-        (output / "datasets.jsonl").open("w", encoding="utf-8") as datasets,
+        (output / "datasets.jsonl").open("w", encoding="utf-8", newline="\n") as datasets,
     ):
-        fit_writer = csv.DictWriter(fit_stream, fieldnames=FIT_FIELDS)
-        selection_writer = csv.DictWriter(selection_stream, fieldnames=SELECTION_FIELDS)
-        truth_writer = csv.DictWriter(truth_stream, fieldnames=KEYS + METRICS)
+        fit_writer = csv.DictWriter(fit_stream, fieldnames=FIT_FIELDS, lineterminator="\n")
+        selection_writer = csv.DictWriter(
+            selection_stream, fieldnames=SELECTION_FIELDS, lineterminator="\n"
+        )
+        truth_writer = csv.DictWriter(truth_stream, fieldnames=KEYS + METRICS, lineterminator="\n")
         for writer in (fit_writer, selection_writer, truth_writer):
             writer.writeheader()
         with threadpool_limits(limits=1):
+            manifest["threadpools"] = [
+                {
+                    key: (Path(value).name if key == "filepath" else value)
+                    for key, value in pool.items()
+                }
+                for pool in threadpool_info()
+            ]
             for replicate in range(study.replicates):
                 family = Family(study, replicate)
                 for std in study.standard_deviations:
@@ -305,7 +314,7 @@ def run(study, output: Path, config_path: Path, protocol: Path):
         for path in sorted(output.rglob("*"))
         if path.is_file() and path != manifest_path
     }
-    manifest_path.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
+    manifest_path.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8", newline="\n")
     return manifest
 
 

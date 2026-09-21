@@ -123,6 +123,7 @@ def test_runner_replay_counts_reporting_and_integrity(tmp_path):
     assert one["observed"]["selections"] == 36
     assert one["observed"]["fit_failures"] == 0
     assert one["observed"] == two["observed"]
+    assert all(pool["num_threads"] == 1 for pool in one["threadpools"])
     pd.testing.assert_frame_equal(
         pd.read_csv(first / "fits.csv").drop(columns="fit_seconds"),
         pd.read_csv(second / "fits.csv").drop(columns="fit_seconds"),
@@ -131,6 +132,9 @@ def test_runner_replay_counts_reporting_and_integrity(tmp_path):
     with pytest.raises(FileExistsError):
         run(study, first, config, protocol)
     report(first)
+    for artifact in first.rglob("*"):
+        if artifact.suffix in (".json", ".jsonl", ".csv", ".md"):
+            assert b"\r\n" not in artifact.read_bytes(), artifact
     assert (first / "REPORT.es.md").exists()
     assert (first / "figures/recovery.pdf").exists()
     success = pd.read_csv(first / "k_recovery.csv")
