@@ -1,0 +1,22 @@
+{
+  "source_manifests": {
+    "primary": "7739b89ddc3ecff8d5effade331882a052cebdd04fdf5d11717f5b22b93d55e5",
+    "small": "f691db3788178d0ab1f7e3d9c21adf6bb43702ae1cac13e9c55cadb78e91134d",
+    "dimensions": "6d350b82a2fe6769f852bfb161d4e3aa1c3092d5d6fdf418ee95a1e7c65ef47b",
+    "eight": "8651ca62405e60b787d0c93bf550c39675bb7d10286a9ae8f8884ad9856cc774"
+  },
+  "dataset_replay": "all fingerprints match",
+  "experimental_source_consistency": "identical source hashes across all four runs",
+  "script_sha256": "1a2b301543a0897acff0abb2a6e5d59f53f938c11cf6d1eb099dfd05ae08a0c9",
+  "artifacts": {
+    "validation_summary.csv": "393ee9ded5b1e6502414c618bee6a294a60f5c06a5bfdc9633aaaba1195e68d5",
+    "validation_contrasts.csv": "600e4fb62f178b9ad1e16513eea920bec8377fc2e9c00ce12c459ceb7b89aae0",
+    "run_counts.csv": "d86f4b41d7f4407714b5952a22c0d8a0733ab3b98342e59b20ae685073c5c20f",
+    "selected_counts.csv": "0e8841568ae95f34ededc13e2bf7a5fcb62476b0482a270b230841523fc9ef77",
+    "geometry.csv": "c82114dee3c33ac3f6cec632fc27bd38a2042361309e50fedab2d0887e18e27d",
+    "primary_table.tex": "673db8b649abef185401deb4103da84d7a1487b6ba24f7aa63927c0eb916334d",
+    "numbers.tex": "35745e19d89f541bdb37b9f4cdfaa795c135be81825cba0eec26ae8b55799d7d",
+    "validation.pdf": "5a911abafc8444692d9ac2b64ec5848d88778b96664207b3549985eb84777cda",
+    "validation.png": "689f9cd0602a64ed5c5ae9f0fc3f449074f6d2e05ee2d5dade94945493ea0ae4"
+  }
+}

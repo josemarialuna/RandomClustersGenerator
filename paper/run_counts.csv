@@ -1,0 +1,5 @@
+scenario,datasets,fits,selections,fit_failures,selection_failures,fit_warnings,families,seconds
+primary,600,9600,3600,0,0,0,200,117.06778080000367
+small,1050,16800,6300,0,0,0,50,183.41916830000264
+dimensions,1050,16800,6300,0,0,0,50,233.49810219999927
+eight,1050,25200,6300,0,0,0,50,5848.043430800004

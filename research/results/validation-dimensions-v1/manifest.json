@@ -1,0 +1,130 @@
+{
+  "status": "complete",
+  "design_version": "paired-noise-v1",
+  "config": {
+    "study_id": "validation-dimensions-v1",
+    "master_seed": 2026092203,
+    "replicates": 50,
+    "clusters": 4,
+    "samples": 100,
+    "features": 4,
+    "standard_deviations": [
+      0.05,
+      0.15,
+      0.3
+    ],
+    "noise_counts": [
+      0,
+      2,
+      8,
+      32
+    ],
+    "noise_distributions": [
+      "uniform",
+      "normal"
+    ],
+    "preprocessing": [
+      "raw",
+      "standardized"
+    ],
+    "candidate_k": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "kmeans_n_init": 10,
+    "kmeans_max_iter": 300
+  },
+  "config_sha256": "f4abbca4b81ce914b9090f6d6dadb808d4e6fa9ba0e4d8aebea2999864f27887",
+  "protocol_sha256": "4e5e74740f0d5baa82f41737862cd0c040fed03620a4d512720802e08b92a5b7",
+  "source_commit": "e5d5f039826de3fc8398ed35de79285c3deacbee",
+  "git_dirty": true,
+  "source_sha256": {
+    "__init__.py": "f0819ddd5a47c37375cd8df32b7a003ee97de1852cccaf114668449d550a865a",
+    "__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+    "cli.py": "2191e5b5175ff9225774d92169b168f070f2eeeee41203c03502ff0256381e48",
+    "core.py": "0cd6a9ba517d3e583227f38c127cc0946ce19af29052ddfce53da0ff30279858",
+    "io.py": "3f4b3cbe5dfaea4f0e73de530b67313f7495ee8e65f16f7caca0322ddbe74278",
+    "research/__init__.py": "45e23879057db9331fd94c5c838b6485b73faf61c23a7c71947c29ff8bf7dc4b",
+    "research/design.py": "fe35df34fba8947b052cfdc957921405c1281ba947b8b717187f481c7909ccde",
+    "research/report.py": "a7a91aca390dd85848775ad4f9e13c2e519e0a60ea069e70e40dc75ca9e70db6",
+    "research/run.py": "65d06d7535a6aac5faae211bbe23b6e13960d450ec0602e6c4f1c93c7d947d7e"
+  },
+  "versions": {
+    "random-clusters-generator": "1.0.0",
+    "numpy": "2.5.3",
+    "pandas": "2.3.3",
+    "scipy": "1.18.1",
+    "scikit-learn": "1.9.1",
+    "matplotlib": "3.11.2",
+    "threadpoolctl": "3.7.0"
+  },
+  "python": "3.12.4",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "thread_limit": 1,
+  "threadpools": [
+    {
+      "user_api": "blas",
+      "internal_api": "openblas",
+      "num_threads": 1,
+      "prefix": "libscipy_openblas",
+      "filepath": "libscipy_openblas64_-ed4f167a5330424524f45258e7ca2c8d.dll",
+      "version": "0.3.34.106.0",
+      "threading_layer": "pthreads",
+      "architecture": "SkylakeX"
+    },
+    {
+      "user_api": "openmp",
+      "internal_api": "openmp",
+      "num_threads": 1,
+      "prefix": "vcomp",
+      "filepath": "vcomp140.dll",
+      "version": null
+    },
+    {
+      "user_api": "blas",
+      "internal_api": "openblas",
+      "num_threads": 1,
+      "prefix": "libscipy_openblas",
+      "filepath": "libscipy_openblas-197ee2fc9b4d071f7e048078cac74115.dll",
+      "version": "0.3.31.dev",
+      "threading_layer": "pthreads",
+      "architecture": "SkylakeX"
+    }
+  ],
+  "expected_datasets": 1050,
+  "expected_fits": 16800,
+  "expected_selections": 6300,
+  "observed": {
+    "datasets": 1050,
+    "fits": 16800,
+    "selections": 6300,
+    "fit_failures": 0,
+    "selection_failures": 0,
+    "fit_warnings": 0
+  },
+  "elapsed_seconds": 233.49810219999927,
+  "output_sha256": {
+    "config.json": "f4abbca4b81ce914b9090f6d6dadb808d4e6fa9ba0e4d8aebea2999864f27887",
+    "datasets.jsonl": "86194f0a6b869e5d27532f523ddb11a9219ea95ec49a37ed3ba26e38b2470606",
+    "fits.csv": "4efe51361f40795d6f58d398f154516becd013c667093b25d4162dce4e337aca",
+    "gallery/r000_sd0.05_q0_none.csv": "5c5ee54a792b49743711692fbddf66a28832361784adc552eee4e31af073a2af",
+    "gallery/r000_sd0.05_q32_normal.csv": "7e02519265f9c7e2a67f8b264d8ba2d67a36f41638fc1c76c1d1a9265266d520",
+    "gallery/r000_sd0.05_q32_uniform.csv": "b7879bcd4a4feda1fb017e83b76d6127af9d8124da4846c704865f5ef31a0465",
+    "gallery/r000_sd0.15_q0_none.csv": "796263943c2620883b9906bcdbf961d705fb86b960fe2eb6d2b7ef43cb20bc91",
+    "gallery/r000_sd0.15_q32_normal.csv": "789f4c9076bbc36d839723564bc3cab9999ab2b89e90b5d35387d172ec05b64f",
+    "gallery/r000_sd0.15_q32_uniform.csv": "60139f02883df30c4ef9afae245f551dda7f19a168482d538a0fd47a792a853f",
+    "gallery/r000_sd0.3_q0_none.csv": "9745531964f3358d20c24107f7fe8aa689d24e0093cd37c11401f3d09c84c498",
+    "gallery/r000_sd0.3_q32_normal.csv": "90127b0d2ac92faf1ac0b4039a7a93c379bfebb71da57ee4d32d7f2502a05e26",
+    "gallery/r000_sd0.3_q32_uniform.csv": "4a55f59ee16dc103896a4bd22c5d67c73c14e9076df6b82be1746d77c9c07410",
+    "pilot.json": "b993e58d29c05f54f6bbcc1b3710826baeee8b3a45647b2d96aa25a49d958d9e",
+    "protocol.md": "4e5e74740f0d5baa82f41737862cd0c040fed03620a4d512720802e08b92a5b7",
+    "RELATED_WORK.md": "37c33a1741ef991844f85f6bab04cfd8b4d5453527ef4238040e5045945a7712",
+    "selections.csv": "d6f115447adb46e4b59bff05595ab5ab62cca1af109599d60239bc4f6b091e9a",
+    "truth_scores.csv": "799e5c69f796704198ce3a22df4058fcac84453ae203d16fa7c8a6c469b74896"
+  }
+}
