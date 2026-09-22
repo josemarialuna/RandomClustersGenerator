@@ -1,0 +1,6 @@
+{
+  "package": "schema, balanced labels, finite values, noise bounds and replay pass",
+  "reference": "schema, balanced labels, finite values, noise bounds and replay pass",
+  "package_add_noise": "all prior columns and row order preserved",
+  "paired_research": "signal and nested nuisance prefix exactly preserved"
+}

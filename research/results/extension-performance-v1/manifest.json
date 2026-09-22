@@ -1,0 +1,70 @@
+{
+  "kind": "performance",
+  "status": "complete",
+  "protocol_sha256": "6b75b1ded61ec8ee686094cde23171d05c956a778484927a13f76a475ea3618d",
+  "source_commit": "d1ed040a02e3193601e03a4d80b91bdb958c23fd",
+  "git_dirty": true,
+  "source_sha256": {
+    "research/extension/__init__.py": "c7a53cc832932a0deed3d101544b677d402e7a8b6b2b2e02006167fedaa21a02",
+    "research/extension/inference.py": "79ca36e34b4862aabaf0389dad2f562929cfc5a7b7b642b8875d2e9c857aafb2",
+    "research/extension/models.py": "6c9244c68e5244810cf21338359fbc5cebc1429a564d3c16bc4d1a518eeddc80",
+    "research/extension/performance.py": "2486f0af597148687879b3549de66fe6be9fe5dfe5a826202056632e399781f7",
+    "research/extension/run.py": "ed975aca3d6f0208fceb9127f30984fda2108a1fd8edf904af2022304040c82a",
+    "src/random_clusters/__init__.py": "f0819ddd5a47c37375cd8df32b7a003ee97de1852cccaf114668449d550a865a",
+    "src/random_clusters/__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+    "src/random_clusters/cli.py": "2191e5b5175ff9225774d92169b168f070f2eeeee41203c03502ff0256381e48",
+    "src/random_clusters/core.py": "0cd6a9ba517d3e583227f38c127cc0946ce19af29052ddfce53da0ff30279858",
+    "src/random_clusters/io.py": "3f4b3cbe5dfaea4f0e73de530b67313f7495ee8e65f16f7caca0322ddbe74278",
+    "src/random_clusters/research/__init__.py": "45e23879057db9331fd94c5c838b6485b73faf61c23a7c71947c29ff8bf7dc4b",
+    "src/random_clusters/research/design.py": "fe35df34fba8947b052cfdc957921405c1281ba947b8b717187f481c7909ccde",
+    "src/random_clusters/research/report.py": "a7a91aca390dd85848775ad4f9e13c2e519e0a60ea069e70e40dc75ca9e70db6",
+    "src/random_clusters/research/run.py": "65d06d7535a6aac5faae211bbe23b6e13960d450ec0602e6c4f1c93c7d947d7e"
+  },
+  "python": "3.12.4",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "versions": {
+    "numpy": "2.5.3",
+    "pandas": "2.3.3",
+    "scipy": "1.18.1",
+    "scikit-learn": "1.9.1",
+    "threadpoolctl": "3.7.0"
+  },
+  "thread_limit": 1,
+  "threadpools": [
+    {
+      "user_api": "blas",
+      "internal_api": "openblas",
+      "num_threads": 1,
+      "prefix": "libscipy_openblas",
+      "filepath": "libscipy_openblas64_-ed4f167a5330424524f45258e7ca2c8d.dll",
+      "version": "0.3.34.106.0",
+      "threading_layer": "pthreads",
+      "architecture": "SkylakeX"
+    },
+    {
+      "user_api": "blas",
+      "internal_api": "openblas",
+      "num_threads": 1,
+      "prefix": "libscipy_openblas",
+      "filepath": "libscipy_openblas-197ee2fc9b4d071f7e048078cac74115.dll",
+      "version": "0.3.31.dev",
+      "threading_layer": "pthreads",
+      "architecture": "SkylakeX"
+    },
+    {
+      "user_api": "openmp",
+      "internal_api": "openmp",
+      "num_threads": 1,
+      "prefix": "vcomp",
+      "filepath": "vcomp140.dll",
+      "version": null
+    }
+  ],
+  "trials": 120,
+  "elapsed_seconds": 85.77680060000057,
+  "artifacts": {
+    "protocol.md": "6b75b1ded61ec8ee686094cde23171d05c956a778484927a13f76a475ea3618d",
+    "trials.csv": "1a61881ab516ec2bed11f28d838450a3fa85e18afadaf7d6e198e72e1057dc51",
+    "workflow_checks.json": "c199fc46d463830719dcbf67fc6cde19d717c43329a197b571e6bdf7f38bea2d"
+  }
+}

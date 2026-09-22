@@ -75,3 +75,33 @@ superiority of Gaussian nuisance variables or standardization.
 At the author's request, manuscript authoring and checkpoints now take place
 in Overleaf. Git retains code, executable protocols and computational evidence;
 manuscript prose is removed from the active tree without rewriting history.
+
+## 2026-09-22 — Four prospective revision studies
+
+Code and protocol were committed at d1ed040a02e3193601e03a4d80b91bdb958c23fd
+before all four extension executions. The crossed study adds 100 independently
+seeded families; the factorial study adds 1,440 families in 48 cells. Together
+they completed 4,520 datasets, 36,240 fits and 15,360 selections without failed
+fits or recorded warnings. Candidate label arrays and all feature diagnostics
+are retained. The 120 operational trials ran sequentially after model fitting
+finished. Coverage was evaluated by exact trinomial enumeration, not simulation.
+
+The archives record git_dirty=true because archive creation precedes git-status
+inspection and earlier result directories already exist. The analyzer verifies
+each experimental source hash against the recorded frozen commit, not merely
+against the current working tree. Experimental sources were not changed during
+execution. Postprocessing was implemented afterward in paper/analyze_extension.py.
+
+During postprocessing audit, the family-count field was renamed to avoid
+overwriting total sample size in the factorial contrasts. No raw result changed.
+Some short CPU-time measurements are zero at this Windows clock's resolution;
+paired CPU ratios with a zero reference are undefined, explicitly counted and
+left blank, not interpreted as speedups. Wall-clock records remain available for
+every trial. Median tracked allocations are not peak resident process memory.
+
+The new evidence preserves unfavorable and inconclusive findings. In particular,
+the conservative interaction interval includes zero, factorial noise contrasts
+are much smaller than the original primary result, and the ordinary t procedure
+can under-cover severely near rare discordance. Original planned intervals are
+preserved alongside conservative pointwise alternatives. No new global optimum,
+universal superiority, user-productivity or simultaneous-coverage claim is made.
