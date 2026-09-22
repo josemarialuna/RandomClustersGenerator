@@ -104,3 +104,20 @@ support assumptions; there is no simultaneous coverage claim across endpoints.
 Mechanism summaries describe associations, not causal attribution. Performance
 is local: tracked allocations are not RSS, and generation does not measure
 clustering scalability or human effort. The standard-library verifier is in CI.
+
+## Reviewer-driven supplementary analysis
+
+`python paper/review_evidence.py` derives six additional tables without changing
+any experimental archive or the earlier analysis. It uses the nesting of fixed
+candidate fits to prove that the crossed correct-count interaction lies in
+`{-1,0,1}`, checks that expansion never improves correct-count recovery, and
+reports both the sharper Hoeffding and CP/Bonferroni bounds. The original wider
+bound remains reproducible in `extension_interaction_contrasts.csv`.
+
+Additional tables expose all three indices, compare signal/noise contributions
+at fixed candidate counts, and report timing quartiles and ranges. The check
+also confirms that 100 nested starts never increase best inertia relative to
+ten starts. These are post-review summaries, not new prospective hypotheses.
+`review_02_hardware.json` records the same PC's inventory during review; it is
+not contemporaneous benchmark telemetry. Run `python paper/review_evidence.py
+--check` on one line to verify the supplementary manifest; CI runs this check.
