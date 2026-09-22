@@ -105,3 +105,19 @@ are much smaller than the original primary result, and the ordinary t procedure
 can under-cover severely near rare discordance. Original planned intervals are
 preserved alongside conservative pointwise alternatives. No new global optimum,
 universal superiority, user-productivity or simultaneous-coverage claim is made.
+
+## 2026-09-22 — Reviewer-driven supplementary analysis
+
+The second manuscript review identified a structural refinement: with fixed
+candidate fits, fixed tie-breaking and the true count in both nested ranges,
+expansion cannot turn incorrect count selection into correct selection. Each
+range effect is therefore in {-1,0}; their budget interaction is in {-1,0,1},
+not merely [-2,2]. The original bound is valid but unnecessarily wide. A separate
+post-review analyzer proves/checks nesting and reports the sharper support and
+CP/Bonferroni alternative without modifying the frozen protocol, raw evidence
+or original derived analysis. The Gaussian interval still contains zero.
+
+Fixed-count (4, 8, 16) feature diagnostics avoid attributing all increases in
+explained dispersion to noise when group count itself changes. All three indices
+and timing variability are summarized, and post-review hardware inventory is
+identified as such. No models were refitted and no samples were added or discarded.

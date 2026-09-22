@@ -1,0 +1,15 @@
+{
+  "analysis": "post-review supplement; original records and analyses unchanged",
+  "files": {
+    "paper/review_02_factorial_indices.csv": "9e448c647189a3c29bb84fb57714a2742a4e77dfd9a9cd4a56abce478ae25cee",
+    "paper/review_02_fixed_partition_diagnostics.csv": "8e94bba37d61157c3519a3494b5a6bc9ddd2a93c4fec762a7e736ee2f08fcda0",
+    "paper/review_02_hardware.json": "97e5d9075b96492f95fd7da2d2af25dba45d274355ae980c73090d64f1b5d259",
+    "paper/review_02_indices.csv": "debac307561ade050308b08404a5f194d2d5d5cf5465eba76f448d4d94e220be",
+    "paper/review_02_interaction.csv": "3caee2fa09059c916f61ef7a0a2bce2624673f2ba8dc3119204914b7af6994bb",
+    "paper/review_02_performance_spread.csv": "080f186ced7fd1838e69f3359b2068687b29e050f913eb41154157cb2ed9ae9e",
+    "paper/review_evidence.py": "8f02a92ccfb9ef02d696f76a53b50959cff0b45f2eabdd289cd41b80d5dd5a89",
+    "research/results/extension-generalization-v1/manifest.json": "da6282d684f9a19b499348827f9efa7c34802e8365e07142df9171be21240842",
+    "research/results/extension-interaction-v1/manifest.json": "6dda2bb8bde5f04ae33d7cfd91c2c725928af8f207143dfdfb12a3a88fdaa972",
+    "research/results/extension-performance-v1/manifest.json": "a0c6a0c23deaf3f8e642182fa0b36b7178acda724548597a3fe8c5a0116b958a"
+  }
+}
