@@ -1,0 +1,386 @@
+[
+  {
+    "cell": 0,
+    "k": 3,
+    "p": 3,
+    "n": 240,
+    "separation": 3,
+    "geometry": "cube"
+  },
+  {
+    "cell": 1,
+    "k": 3,
+    "p": 3,
+    "n": 240,
+    "separation": 3,
+    "geometry": "random"
+  },
+  {
+    "cell": 2,
+    "k": 3,
+    "p": 3,
+    "n": 240,
+    "separation": 3,
+    "geometry": "anisotropic"
+  },
+  {
+    "cell": 3,
+    "k": 3,
+    "p": 3,
+    "n": 240,
+    "separation": 8,
+    "geometry": "cube"
+  },
+  {
+    "cell": 4,
+    "k": 3,
+    "p": 3,
+    "n": 240,
+    "separation": 8,
+    "geometry": "random"
+  },
+  {
+    "cell": 5,
+    "k": 3,
+    "p": 3,
+    "n": 240,
+    "separation": 8,
+    "geometry": "anisotropic"
+  },
+  {
+    "cell": 6,
+    "k": 3,
+    "p": 3,
+    "n": 480,
+    "separation": 3,
+    "geometry": "cube"
+  },
+  {
+    "cell": 7,
+    "k": 3,
+    "p": 3,
+    "n": 480,
+    "separation": 3,
+    "geometry": "random"
+  },
+  {
+    "cell": 8,
+    "k": 3,
+    "p": 3,
+    "n": 480,
+    "separation": 3,
+    "geometry": "anisotropic"
+  },
+  {
+    "cell": 9,
+    "k": 3,
+    "p": 3,
+    "n": 480,
+    "separation": 8,
+    "geometry": "cube"
+  },
+  {
+    "cell": 10,
+    "k": 3,
+    "p": 3,
+    "n": 480,
+    "separation": 8,
+    "geometry": "random"
+  },
+  {
+    "cell": 11,
+    "k": 3,
+    "p": 3,
+    "n": 480,
+    "separation": 8,
+    "geometry": "anisotropic"
+  },
+  {
+    "cell": 12,
+    "k": 3,
+    "p": 6,
+    "n": 240,
+    "separation": 3,
+    "geometry": "cube"
+  },
+  {
+    "cell": 13,
+    "k": 3,
+    "p": 6,
+    "n": 240,
+    "separation": 3,
+    "geometry": "random"
+  },
+  {
+    "cell": 14,
+    "k": 3,
+    "p": 6,
+    "n": 240,
+    "separation": 3,
+    "geometry": "anisotropic"
+  },
+  {
+    "cell": 15,
+    "k": 3,
+    "p": 6,
+    "n": 240,
+    "separation": 8,
+    "geometry": "cube"
+  },
+  {
+    "cell": 16,
+    "k": 3,
+    "p": 6,
+    "n": 240,
+    "separation": 8,
+    "geometry": "random"
+  },
+  {
+    "cell": 17,
+    "k": 3,
+    "p": 6,
+    "n": 240,
+    "separation": 8,
+    "geometry": "anisotropic"
+  },
+  {
+    "cell": 18,
+    "k": 3,
+    "p": 6,
+    "n": 480,
+    "separation": 3,
+    "geometry": "cube"
+  },
+  {
+    "cell": 19,
+    "k": 3,
+    "p": 6,
+    "n": 480,
+    "separation": 3,
+    "geometry": "random"
+  },
+  {
+    "cell": 20,
+    "k": 3,
+    "p": 6,
+    "n": 480,
+    "separation": 3,
+    "geometry": "anisotropic"
+  },
+  {
+    "cell": 21,
+    "k": 3,
+    "p": 6,
+    "n": 480,
+    "separation": 8,
+    "geometry": "cube"
+  },
+  {
+    "cell": 22,
+    "k": 3,
+    "p": 6,
+    "n": 480,
+    "separation": 8,
+    "geometry": "random"
+  },
+  {
+    "cell": 23,
+    "k": 3,
+    "p": 6,
+    "n": 480,
+    "separation": 8,
+    "geometry": "anisotropic"
+  },
+  {
+    "cell": 24,
+    "k": 4,
+    "p": 3,
+    "n": 240,
+    "separation": 3,
+    "geometry": "cube"
+  },
+  {
+    "cell": 25,
+    "k": 4,
+    "p": 3,
+    "n": 240,
+    "separation": 3,
+    "geometry": "random"
+  },
+  {
+    "cell": 26,
+    "k": 4,
+    "p": 3,
+    "n": 240,
+    "separation": 3,
+    "geometry": "anisotropic"
+  },
+  {
+    "cell": 27,
+    "k": 4,
+    "p": 3,
+    "n": 240,
+    "separation": 8,
+    "geometry": "cube"
+  },
+  {
+    "cell": 28,
+    "k": 4,
+    "p": 3,
+    "n": 240,
+    "separation": 8,
+    "geometry": "random"
+  },
+  {
+    "cell": 29,
+    "k": 4,
+    "p": 3,
+    "n": 240,
+    "separation": 8,
+    "geometry": "anisotropic"
+  },
+  {
+    "cell": 30,
+    "k": 4,
+    "p": 3,
+    "n": 480,
+    "separation": 3,
+    "geometry": "cube"
+  },
+  {
+    "cell": 31,
+    "k": 4,
+    "p": 3,
+    "n": 480,
+    "separation": 3,
+    "geometry": "random"
+  },
+  {
+    "cell": 32,
+    "k": 4,
+    "p": 3,
+    "n": 480,
+    "separation": 3,
+    "geometry": "anisotropic"
+  },
+  {
+    "cell": 33,
+    "k": 4,
+    "p": 3,
+    "n": 480,
+    "separation": 8,
+    "geometry": "cube"
+  },
+  {
+    "cell": 34,
+    "k": 4,
+    "p": 3,
+    "n": 480,
+    "separation": 8,
+    "geometry": "random"
+  },
+  {
+    "cell": 35,
+    "k": 4,
+    "p": 3,
+    "n": 480,
+    "separation": 8,
+    "geometry": "anisotropic"
+  },
+  {
+    "cell": 36,
+    "k": 4,
+    "p": 6,
+    "n": 240,
+    "separation": 3,
+    "geometry": "cube"
+  },
+  {
+    "cell": 37,
+    "k": 4,
+    "p": 6,
+    "n": 240,
+    "separation": 3,
+    "geometry": "random"
+  },
+  {
+    "cell": 38,
+    "k": 4,
+    "p": 6,
+    "n": 240,
+    "separation": 3,
+    "geometry": "anisotropic"
+  },
+  {
+    "cell": 39,
+    "k": 4,
+    "p": 6,
+    "n": 240,
+    "separation": 8,
+    "geometry": "cube"
+  },
+  {
+    "cell": 40,
+    "k": 4,
+    "p": 6,
+    "n": 240,
+    "separation": 8,
+    "geometry": "random"
+  },
+  {
+    "cell": 41,
+    "k": 4,
+    "p": 6,
+    "n": 240,
+    "separation": 8,
+    "geometry": "anisotropic"
+  },
+  {
+    "cell": 42,
+    "k": 4,
+    "p": 6,
+    "n": 480,
+    "separation": 3,
+    "geometry": "cube"
+  },
+  {
+    "cell": 43,
+    "k": 4,
+    "p": 6,
+    "n": 480,
+    "separation": 3,
+    "geometry": "random"
+  },
+  {
+    "cell": 44,
+    "k": 4,
+    "p": 6,
+    "n": 480,
+    "separation": 3,
+    "geometry": "anisotropic"
+  },
+  {
+    "cell": 45,
+    "k": 4,
+    "p": 6,
+    "n": 480,
+    "separation": 8,
+    "geometry": "cube"
+  },
+  {
+    "cell": 46,
+    "k": 4,
+    "p": 6,
+    "n": 480,
+    "separation": 8,
+    "geometry": "random"
+  },
+  {
+    "cell": 47,
+    "k": 4,
+    "p": 6,
+    "n": 480,
+    "separation": 8,
+    "geometry": "anisotropic"
+  }
+]
