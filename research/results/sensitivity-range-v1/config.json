@@ -1,0 +1,42 @@
+{
+  "study_id": "sensitivity-range-v1",
+  "master_seed": 2026092201,
+  "replicates": 50,
+  "clusters": 4,
+  "samples": 100,
+  "features": 2,
+  "standard_deviations": [
+    0.05
+  ],
+  "noise_counts": [
+    0,
+    2
+  ],
+  "noise_distributions": [
+    "uniform",
+    "normal"
+  ],
+  "preprocessing": [
+    "raw",
+    "standardized"
+  ],
+  "candidate_k": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16
+  ],
+  "kmeans_n_init": 10,
+  "kmeans_max_iter": 300
+}
