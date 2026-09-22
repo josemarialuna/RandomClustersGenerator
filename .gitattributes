@@ -6,3 +6,7 @@
 *.py text eol=lf
 *.md text eol=lf
 *.yml text eol=lf
+*.tex text eol=lf
+*.bib text eol=lf
+# Preserve the exact pre-execution protocol bytes recorded by these manifests.
+research/results/validation-*/protocol.md -text

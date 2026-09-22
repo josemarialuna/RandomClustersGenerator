@@ -1,0 +1,20 @@
+\begin{table}[htbp]
+\centering\footnotesize
+\setlength{\tabcolsep}{3pt}
+\caption{Independent validation at $q=2$, $\sigma=0.05$. Known-count K-means
+ARI is reported as mean [pointwise 95\% interval]. Other columns count correct
+selections of $k=4$ out of 200 families (Sil: silhouette; CH: Calinski--Harabasz;
+DB: Davies--Bouldin). Values rounded to 1.000 need not equal one exactly;
+unrounded estimates are archived.}
+\label{tab:primary}
+\begin{tabular}{llrrrr}
+\toprule
+Scale & Noise & Known-count ARI & Sil & CH & DB \\
+\midrule
+Raw & Uniform & 0.264 [0.241, 0.287] & 0/200 & 1/200 & 0/200 \\
+Raw & Normal & 0.630 [0.595, 0.666] & 14/200 & 2/200 & 0/200 \\
+Standardized & Uniform & 0.947 [0.930, 0.963] & 5/200 & 0/200 & 0/200 \\
+Standardized & Normal & 1.000 [1.000, 1.000] & 187/200 & 1/200 & 0/200 \\
+\bottomrule
+\end{tabular}
+\end{table}
