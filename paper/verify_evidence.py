@@ -24,6 +24,17 @@ def main():
         if digest(PAPER / name) != expected:
             raise ValueError(f"manuscript artifact changed: {name}")
     print(f"Verified {len(manifest['artifacts'])} manuscript evidence artifacts.")
+    sensitivity = json.loads((PAPER / "sensitivity_manifest.json").read_text())
+    if digest(PAPER / "analyze_sensitivity.py") != sensitivity["script_sha256"]:
+        raise ValueError("sensitivity analysis changed since the recorded analysis")
+    for name, expected in sensitivity["source_manifests"].items():
+        directory = "validation-primary-v1" if name == "primary" else f"sensitivity-{name}-v1"
+        if digest(ROOT / "research" / "results" / directory / "manifest.json") != expected:
+            raise ValueError(f"sensitivity input changed: {name}")
+    for name, expected in sensitivity["artifacts"].items():
+        if digest(PAPER / name) != expected:
+            raise ValueError(f"sensitivity artifact changed: {name}")
+    print(f"Verified {len(sensitivity['artifacts'])} sensitivity evidence artifacts.")
 
 
 if __name__ == "__main__":

@@ -55,3 +55,7 @@ jobs:
             python research/verify_artifacts.py research/results/validation-${scenario}-v1
           done
       - run: python paper/verify_evidence.py
+      - run: |
+          for diagnostic in range starts; do
+            python research/verify_artifacts.py research/results/sensitivity-${diagnostic}-v1
+          done
