@@ -1,0 +1,21 @@
+{
+  "files": {
+    "paper/analyze_extension.py": "f8781f2b4c52a0e57d40ed5196cba4337efc9d80cc8533c436d110d90815b618",
+    "research/verify_extension.py": "ae9902710b18599cd2576a1b03f2e456f339f5084d36bd5406d6eae76fc3f930",
+    "research/results/extension-interaction-v1/manifest.json": "6dda2bb8bde5f04ae33d7cfd91c2c725928af8f207143dfdfb12a3a88fdaa972",
+    "research/results/extension-generalization-v1/manifest.json": "da6282d684f9a19b499348827f9efa7c34802e8365e07142df9171be21240842",
+    "research/results/extension-performance-v1/manifest.json": "a0c6a0c23deaf3f8e642182fa0b36b7178acda724548597a3fe8c5a0116b958a",
+    "research/results/extension-coverage-v1/manifest.json": "96fdaae89522fda4f0d56572f6e556826e6a5cf4faef37ef57a23b88f0ba6da0",
+    "paper/extension_interaction.csv": "192d585255824b6cd4181a160fa2bd2f9addaf3e01c7c7b513752ef2a5d72659",
+    "paper/extension_interaction_contrasts.csv": "e9e3041db4284fcd3f5293d2d7a3d15a92aa0f58fb0d475de5b7a130ba72846e",
+    "paper/extension_mechanisms.csv": "59600ca115f976f6b264d3e8ae121741a80c0e68875f161900e6698356c8f932",
+    "paper/extension_selected_k_counts.csv": "e995a87e6177607b9619ca387e6f030f7c41ec33d08f49824efd2a6f94e1cbd8",
+    "paper/extension_factorial_cells.csv": "cede90bd3ff6645590fda49bbfd610e64ea979035c0256b153ba74afbe75a520",
+    "paper/extension_factorial_noise_contrasts.csv": "69b74e5e5f0e29820ba51926cfeede41a052f60f6531a282799b604e3313d0ab",
+    "paper/extension_factorial_effects.csv": "1994fc46f88c62da5fb6f0c75ff5d2f77d313421fa989485349c21d5fc7ab595",
+    "paper/extension_performance.csv": "fc1ca34077d4d07932f4ecaf51d32bbfbd374163c9d0dc5af096a939722af19c",
+    "paper/extension_performance_ratios.csv": "0682b9f313a113428fc3a5bcf64d312bba92fee9d02e3f1e181c392aef0c52e0",
+    "paper/extension_coverage_worst.csv": "3dc31efd91899cf7afe0825daaefb424319c20df0d15e8cc75cc341baac81243"
+  },
+  "replay": "all 4520 datasets and 36240 cached candidate ARIs and label hashes verified"
+}
