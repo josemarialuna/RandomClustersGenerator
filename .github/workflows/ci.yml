@@ -50,3 +50,8 @@ jobs:
       - run: python -m ruff check .
       - run: python -m ruff format --check .
       - run: python research/verify_artifacts.py research/results/pilot-v1
+      - run: |
+          for scenario in primary small dimensions eight; do
+            python research/verify_artifacts.py research/results/validation-${scenario}-v1
+          done
+      - run: python paper/verify_evidence.py
