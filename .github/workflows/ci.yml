@@ -56,6 +56,7 @@ jobs:
           done
       - run: python paper/verify_evidence.py
       - run: python research/verify_extension.py
+      - run: python paper/review_evidence.py --check
       - run: |
           for diagnostic in range starts; do
             python research/verify_artifacts.py research/results/sensitivity-${diagnostic}-v1

@@ -1,0 +1,7 @@
+{
+  "recorded_during": "post-review; not contemporaneous benchmark telemetry",
+  "processor": "11th Gen Intel(R) Core(TM) i7-11700 @ 2.50GHz",
+  "physical_memory_bytes": 68576731136,
+  "physical_cores": 8,
+  "logical_processors": 16
+}
