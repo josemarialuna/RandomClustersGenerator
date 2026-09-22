@@ -22,3 +22,8 @@ htmlcov/
 .idea/
 .DS_Store
 Thumbs.db
+
+# Manuscript authoring is performed in Overleaf.
+paper/main.tex
+paper/results.tex
+paper/references.bib

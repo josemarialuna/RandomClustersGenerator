@@ -47,3 +47,31 @@ Interpretation and candidate next-stage questions are recorded in FINDINGS.es.md
 Copied the protocol's two referenced files next to its archived snapshot so its
 relative links resolve. The added context copies are covered by the analysis
 manifest; no original run artifact was edited. Future runs copy them automatically.
+
+## 2026-09-22 — Independent validation audit
+
+The separately seeded primary validation (200 families) and three robustness
+scenarios (50 each) completed 3,750 datasets, 68,400 fits and 22,500 selections.
+All fit/selection statuses are successful and no warnings were recorded. All
+3,750 dataset/label fingerprints were regenerated. Experimental source hashes
+are identical across the four runs and match the frozen implementation.
+
+The primary run started from clean commit 6c706992. Later runs record a dirty
+working tree because manuscript drafts and preceding run outputs were being
+created. No experimental Python source changed: nine source hashes are recorded
+and were checked against the current implementation. Later run source commits
+also include manuscript work, not model or design changes.
+
+A long wall-clock interruption occurred between progress outputs for families
+46 and 47 of the eight-group run. Its elapsed time is preserved, not corrected
+or treated as an algorithm benchmark. All families completed; no fit was
+removed, restarted or counted twice.
+
+The large primary silhouette count-recovery contrast did not transfer to the
+partial four-dimensional cube (20/50 vs 19/50). This remains in the manuscript
+and evidence rather than being excluded. The study does not claim universal
+superiority of Gaussian nuisance variables or standardization.
+
+At the author's request, manuscript authoring and checkpoints now take place
+in Overleaf. Git retains code, executable protocols and computational evidence;
+manuscript prose is removed from the active tree without rewriting history.

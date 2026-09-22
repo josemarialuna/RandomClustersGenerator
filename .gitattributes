@@ -6,3 +6,5 @@
 *.py text eol=lf
 *.md text eol=lf
 *.yml text eol=lf
+*.tex text eol=lf
+*.bib text eol=lf
