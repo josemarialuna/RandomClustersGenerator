@@ -1,0 +1,16 @@
+{
+  "source_manifests": {
+    "primary": "d8939a0936c50e8668479d0995e94a109474a2c53dd3e4d7e5b77301699dde76",
+    "range": "aae28b97e7228de71a02ad9867f85ff60dcd72e6c65e53fe56bfa374a265417c",
+    "starts": "b2825f2b711ed741f9e591dbddbbe6a04aa8ecf68f3d11738ed6c62ff0103b1b"
+  },
+  "script_sha256": "18cf2b35b39942d881d909891fc4f141d599222d5bfa445a69abaa141ee5c38b",
+  "dataset_pairing": "all 300 evaluations match 150 distinct primary datasets",
+  "shared_candidate_metrics": "exact replay for range expansion",
+  "artifacts": {
+    "sensitivity_changes.csv": "7af35eb2049df6abd00842fb8e75316d9b9f3697d68730e03d71c07de2dd1010",
+    "sensitivity_counts.csv": "f15468947dad0785bc6b0b5dcdfaad6340aaa4dd25a806f399760608d136c200",
+    "sensitivity_runs.csv": "c4af284af872bf8c843e176d6a2f7e76d02e289d618a3d2a4249c5c4fb34d7e8",
+    "sensitivity_summary.csv": "6fd3b2f646b0b82d692a41e2322f29ad86678a52a4e69958733956ce6e12c70a"
+  }
+}

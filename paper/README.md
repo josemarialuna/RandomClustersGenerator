@@ -49,3 +49,14 @@ from raw `ari_regret`, which is best-candidate ARI minus selected-candidate ARI.
 Timing is not a performance benchmark. A long wall-clock interruption occurred
 during the eight-group run; elapsed time is retained unchanged. No model was
 rerun or discarded because of this interruption. See the research decision log.
+
+## Post-validation sensitivity analysis
+
+`research/SENSITIVITY_PROTOCOL.md` freezes two separate diagnostic changes:
+candidate counts 2–16 with ten starts, or 100 starts with counts 2–8. Both reuse
+the first 50 primary families: 300 evaluations of 150 distinct datasets, not
+new independent replicates. Run `python paper/analyze_sensitivity.py` to audit
+the pairing and rebuild `sensitivity_*.csv` and their manifest. Shared candidate
+metrics must replay exactly when extending the range; Ward ARI must remain
+unchanged in both diagnostics. The standard-library verifier also checks these
+derived outputs. Raw archives retain all 7,200 fits and 1,800 selections.
