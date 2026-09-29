@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "Please cite this software and record the exact commit and experimental configuration used."
+type: software
+title: RandomClustersGenerator
+version: 1.0.0
+date-released: 2026-09-29
+authors:
+  - family-names: Luna-Romera
+    given-names: José María
+    affiliation: Universidad de Sevilla
+    email: jmluna@us.es
+repository-code: https://github.com/josemarialuna/RandomClustersGenerator
+url: https://github.com/josemarialuna/RandomClustersGenerator/tree/v1.0.0
+license: MIT
+keywords:
+  - clustering
+  - synthetic datasets
+  - reproducibility
+  - irrelevant features
+abstract: >-
+  A Python package and command-line interface for reproducible labelled Gaussian
+  clustering datasets, with an optional paired-noise research workflow and
+  archived experimental evidence. This citation describes the software, not an
+  accepted journal article.
