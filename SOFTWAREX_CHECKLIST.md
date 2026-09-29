@@ -34,7 +34,7 @@ the document font or change margins to meet limits.
 
 | Requirement | Repository artifact |
 | --- | --- |
-| Public GitHub repository | **Release gate:** repository was private at the requirements audit; visibility must be explicitly authorized and changed before submission |
+| Public GitHub repository | **Release gate:** the author instructed that the repository remain private during preparation and will make it public personally before submission |
 | README.md | Installation, parameters, actual inputs/outputs, Python API, replay and limitations in English; Spanish guide also available |
 | LICENSE.txt | Exact copy of the existing MIT license; both license files ship in the package |
 | Source under src/ | `src/random_clusters/` |
