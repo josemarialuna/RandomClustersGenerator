@@ -58,7 +58,9 @@ its own GitHub organization; that is not already completed at preparation time.
 - Funding: the corresponding author will supply funders, grants and funder roles.
   Keep a visible placeholder until this is completed; do not replace it with a
   claim that no funding was received.
-- All authors must review and approve the manuscript, AI-assisted material,
+- Include the journal-required declaration of AI assistance with code refinement
+  and manuscript review and correction. The declaration is maintained in Overleaf.
+- All authors must review and approve the manuscript, supporting material,
   originality/exclusive-submission statements and final submission declarations.
 - Use the [Elsevier declarations tool](https://declarations.elsevier.com) and
   upload its generated Word declaration file. A manuscript conflict statement

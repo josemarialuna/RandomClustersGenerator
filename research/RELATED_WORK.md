@@ -28,6 +28,5 @@ No quartile, cost, or acceptance claim is made here.
 ## Research integrity
 
 No results, claims of novelty, author affiliations, or citations are invented.
-Record AI assistance in code, protocol, documentation and future manuscript work;
-human authors must verify the sources, design choices, implementation and findings.
+Authors must verify the sources, design choices, implementation and findings.
 This repository milestone is an exploratory artifact, not a submitted manuscript.
