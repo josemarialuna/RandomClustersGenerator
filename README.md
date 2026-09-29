@@ -10,6 +10,11 @@ with known cluster labels and a JSON file describing how it was generated.
 **[Guía en español](README.es.md)** · [Example input](examples/experiments.csv) ·
 [Example output](examples/tiny.csv) · [Experiment metadata](examples/tiny.json)
 
+For the paired research studies, start with the English
+[reproduction guide](REPRODUCIBILITY.md). It separates quick archive checks from
+dataset regeneration and full model refitting. [Citation metadata](CITATION.cff)
+describe the software; no accepted article or publication DOI is implied.
+
 ```text
 INPUT                          GENERATION                    OUTPUT
 4 clusters                     Pick 4 distinct centers       dataset.csv
@@ -295,9 +300,11 @@ reproducing historical results.
 
 ## Development and contributions
 
-An exploratory paired-noise study is available in [research/](research/README.md),
-with its protocol, related-work audit, optional dependencies and reproducible runner.
-It does not alter the production generator or establish a publication claim.
+The [reproduction guide](REPRODUCIBILITY.md) covers the exploratory pilot,
+independent validation, crossed and factorial studies, operational comparison
+and coverage enumeration. Frozen protocols and complete results are in
+[research/](research/README.md); numerical analyses are in [paper/](paper/README.md).
+Research geometries are separate from the public generator API.
 
 ```bash
 python -m pip install -e ".[dev]"
@@ -318,7 +325,10 @@ Do not commit generated research datasets; `data/` is ignored.
 
 ## License and attribution
 
-[MIT License](LICENSE). Created by José María Luna-Romera.
-When using the generator in research, reference this repository and the exact
-commit/version used, and report your parameters and seeds. No publication or DOI
-is implied.
+[MIT License](LICENSE.txt). Created by José María Luna-Romera. `LICENSE` and
+`LICENSE.txt` contain the same license; the latter is included for SoftwareX's
+repository requirements.
+
+Use [CITATION.cff](CITATION.cff) to cite the software and record the exact Git
+revision, parameters, seeds and dependency versions used. The manuscript is
+maintained in Overleaf; it is not an accepted publication and has no article DOI.

@@ -1,0 +1,17 @@
+{
+  "configuration": "research/validation-primary.json",
+  "replicate": 0,
+  "selection_rule": "First prespecified primary family; no fitted-result selection",
+  "uniform_sha256": "b76811d3a0389d33177c0fee79a463514457f245d143a4ae2d43861175f52101",
+  "normal_sha256": "a7c7b05a2ad6c753a78a801791563e10af5a414b7fb5534ae742adf2d77512ee",
+  "labels_sha256": "d4dae9db52920ea1d000ea0c38aa42d1561dbb0bdf57189253db10cf021a53e3",
+  "std": 0.05,
+  "noise": 2,
+  "files": {
+    "Figure_1.pdf": "44af61643fcda95f2d54a1c21d6accff624eb52555ab0b8f4213b6fa35811dcb",
+    "Figure_1.png": "3beaa3ccc9f40b67c35339e47772b1a0a7b872967d0cc31351fb257ec6c44a8d",
+    "Figure_2.pdf": "79b08b80be166cb54a095d92f523a8cd9f8943a0350df85839585707707f5582",
+    "Figure_2.png": "65a134146cbaf3cd3b5a3da9d99f74d57bbf4888abe81ee5a9b1a133d965eb46"
+  },
+  "builder_sha256": "165ffe2489bda51483571569c89c6cf53a073022af6f18e8b3e7ae5fe9680ff2"
+}

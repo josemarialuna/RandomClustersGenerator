@@ -23,6 +23,15 @@ CSV files retain unrounded estimates. PDF metadata may vary between rendering
 dates; numerical tables are deterministic. The standard-library verifier checks
 the recorded artifacts without optional scientific dependencies.
 
+## SoftwareX illustrations
+
+`python paper/softwarex_figures.py` creates two vector PDFs and PNG previews in
+`paper/softwarex/`: the package/research architecture and replicate 0 from the
+frozen primary design. The data example is selected by protocol order, not by
+algorithm outcome. The adjacent manifest records dataset, label and figure hashes.
+The script introduces no new fitted result and does not alter earlier manifests.
+The figure PDFs are imported into Overleaf; the manuscript itself remains there.
+
 The frozen run designs are in `research/VALIDATION_PROTOCOL.md` and
 `research/validation-*.json`. Four output directories are under
 `research/results/validation-*-v1`. Each has a report, raw data, configuration,

@@ -9,7 +9,7 @@ description = "Reproducible synthetic clustering datasets with signal and noise 
 readme = "README.md"
 requires-python = ">=3.10"
 license = "MIT"
-license-files = ["LICENSE"]
+license-files = ["LICENSE", "LICENSE.txt"]
 authors = [{name = "José María Luna-Romera"}]
 dependencies = ["numpy>=1.26,<3", "pandas>=2.2.3,<3"]
 classifiers = [
