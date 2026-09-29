@@ -1,4 +1,12 @@
-# Investigación: primer piloto reproducible
+# Investigación: protocolos y resultados reproducibles
+
+**Empieza por [REPRODUCIBILITY.md](../REPRODUCIBILITY.md)** para una guía en inglés
+que abarca todas las fases: piloto, validación independiente, sensibilidad,
+estudios cruzado y factorial, comparación operativa e inferencia. Allí se separan
+las comprobaciones rápidas, la regeneración de datos y los reajustes completos.
+El manuscrito se mantiene exclusivamente en Overleaf.
+
+## Piloto inicial y antecedentes
 
 Esta carpeta inicia el trabajo hacia una posible publicación. Contiene un
 [protocolo previo al análisis](PROTOCOL.md), una [revisión inicial de antecedentes](RELATED_WORK.md)
