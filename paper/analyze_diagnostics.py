@@ -4,12 +4,9 @@ import json
 import sys
 from pathlib import Path
 
-import pandas as pd
-
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
-from research.extension.inference import bounded_mean, paired_bounds  # noqa: E402
 from research.verify_extension import digest, verify  # noqa: E402
 
 
@@ -22,6 +19,10 @@ def nested_interaction(table):
 
 
 def build():
+    import pandas as pd
+
+    from research.extension.inference import bounded_mean, paired_bounds
+
     inputs, outputs = [], []
 
     def read(kind, file):
@@ -32,7 +33,7 @@ def build():
         return pd.read_json(path, lines=True) if file.endswith("jsonl") else pd.read_csv(path)
 
     def save(name, rows):
-        path = ROOT / "paper" / f"review_02_{name}.csv"
+        path = ROOT / "paper" / "diagnostics" / f"{name}.csv"
         pd.DataFrame(rows).to_csv(path, index=False, float_format="%.17g", lineterminator="\n")
         outputs.append(path)
 
@@ -125,23 +126,23 @@ def build():
                 )
             )
     save("performance_spread", rows)
-    sources = set(inputs + outputs + [Path(__file__), ROOT / "paper/review_02_hardware.json"])
+    sources = set(inputs + outputs + [Path(__file__), ROOT / "paper/diagnostics/hardware.json"])
     manifest = {
-        "analysis": "post-review supplement; original records and analyses unchanged",
+        "analysis": "diagnostic analysis of archived fits; original records unchanged",
         "files": {p.relative_to(ROOT).as_posix(): digest(p) for p in sorted(sources)},
     }
-    (ROOT / "paper/review_02_manifest.json").write_text(
+    (ROOT / "paper/diagnostics/manifest.json").write_text(
         json.dumps(manifest, indent=2) + "\n", encoding="utf-8", newline="\n"
     )
-    print("Built six post-review evidence tables from verified archives")
+    print("Built five diagnostic tables from verified archives")
 
 
 def check():
-    manifest = json.loads((ROOT / "paper/review_02_manifest.json").read_text())
+    manifest = json.loads((ROOT / "paper/diagnostics/manifest.json").read_text())
     for name, expected in manifest["files"].items():
         if digest(ROOT / name) != expected:
             raise ValueError(f"post-review evidence changed: {name}")
-    print("Verified post-review evidence")
+    print("Verified diagnostic evidence")
 
 
 if __name__ == "__main__":

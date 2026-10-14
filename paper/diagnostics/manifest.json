@@ -1,0 +1,15 @@
+{
+  "analysis": "diagnostic analysis of archived fits; original records unchanged",
+  "files": {
+    "paper/analyze_diagnostics.py": "84ab2df3dcaca58c6ba7e5b1bc27895d5c2e47301ccb57663e4e9bfdd7c35d7f",
+    "paper/diagnostics/factorial_indices.csv": "9e448c647189a3c29bb84fb57714a2742a4e77dfd9a9cd4a56abce478ae25cee",
+    "paper/diagnostics/fixed_partition_diagnostics.csv": "8e94bba37d61157c3519a3494b5a6bc9ddd2a93c4fec762a7e736ee2f08fcda0",
+    "paper/diagnostics/hardware.json": "97e5d9075b96492f95fd7da2d2af25dba45d274355ae980c73090d64f1b5d259",
+    "paper/diagnostics/indices.csv": "debac307561ade050308b08404a5f194d2d5d5cf5465eba76f448d4d94e220be",
+    "paper/diagnostics/interaction.csv": "3caee2fa09059c916f61ef7a0a2bce2624673f2ba8dc3119204914b7af6994bb",
+    "paper/diagnostics/performance_spread.csv": "080f186ced7fd1838e69f3359b2068687b29e050f913eb41154157cb2ed9ae9e",
+    "research/results/extension-generalization-v1/manifest.json": "da6282d684f9a19b499348827f9efa7c34802e8365e07142df9171be21240842",
+    "research/results/extension-interaction-v1/manifest.json": "6dda2bb8bde5f04ae33d7cfd91c2c725928af8f207143dfdfb12a3a88fdaa972",
+    "research/results/extension-performance-v1/manifest.json": "a0c6a0c23deaf3f8e642182fa0b36b7178acda724548597a3fe8c5a0116b958a"
+  }
+}

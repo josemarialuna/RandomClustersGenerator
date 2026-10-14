@@ -2,9 +2,8 @@
 
 The manuscript is written and checkpointed directly in Overleaf. This folder
 contains analysis code and generated scientific evidence, not manuscript prose.
-Earlier draft sources have been removed from the active Git tree at the author's
-request; historical commits are preserved. Do not edit or version a manuscript
-copy here. Numerical LaTeX tables are program outputs for import into Overleaf.
+Do not edit or version a manuscript copy here. Numerical LaTeX tables are
+program outputs for import into Overleaf.
 
 ## Reproduce the evidence
 
@@ -62,7 +61,7 @@ rerun or discarded because of this interruption. See the research decision log.
 ## Post-validation sensitivity analysis
 
 `research/SENSITIVITY_PROTOCOL.md` freezes two separate diagnostic changes:
-candidate counts 2–16 with ten starts, or 100 starts with counts 2–8. Both reuse
+candidate counts 2â€“16 with ten starts, or 100 starts with counts 2â€“8. Both reuse
 the first 50 primary families: 300 evaluations of 150 distinct datasets, not
 new independent replicates. Run `python paper/analyze_sensitivity.py` to audit
 the pairing and rebuild `sensitivity_*.csv` and their manifest. Shared candidate
@@ -70,7 +69,7 @@ metrics must replay exactly when extending the range; Ward ARI must remain
 unchanged in both diagnostics. The standard-library verifier also checks these
 derived outputs. Raw archives retain all 7,200 fits and 1,800 selections.
 
-## Crossed, factorial, operational and coverage revision
+## Crossed, factorial, operational and coverage studies
 
 The pre-execution design is `research/EXTENSION_PROTOCOL.md`, frozen with the
 experimental code at `4cef7ab36c160b52e98553238a9846eaa0ade46e`. From that checkout:
@@ -114,9 +113,9 @@ Mechanism summaries describe associations, not causal attribution. Performance
 is local: tracked allocations are not RSS, and generation does not measure
 clustering scalability or human effort. The standard-library verifier is in CI.
 
-## Reviewer-driven supplementary analysis
+## Diagnostics of archived fits
 
-`python paper/review_evidence.py` derives six additional tables without changing
+`python paper/analyze_diagnostics.py` derives five tables in `paper/diagnostics/` without changing
 any experimental archive or the earlier analysis. It uses the nesting of fixed
 candidate fits to prove that the crossed correct-count interaction lies in
 `{-1,0,1}`, checks that expansion never improves correct-count recovery, and
@@ -127,6 +126,6 @@ Additional tables expose all three indices, compare signal/noise contributions
 at fixed candidate counts, and report timing quartiles and ranges. The check
 also confirms that 100 nested starts never increase best inertia relative to
 ten starts. These are post-review summaries, not new prospective hypotheses.
-`review_02_hardware.json` records the same PC's inventory during review; it is
-not contemporaneous benchmark telemetry. Run `python paper/review_evidence.py
---check` on one line to verify the supplementary manifest; CI runs this check.
+`diagnostics/hardware.json` records the same PC's inventory during review; it is
+not contemporaneous benchmark telemetry. Run `python paper/analyze_diagnostics.py
+--check` on one line to verify the diagnostic manifest; CI runs this check.

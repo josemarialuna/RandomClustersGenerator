@@ -3,7 +3,8 @@
 This guide distinguishes **checking saved files**, **regenerating datasets** and
 **refitting models**. Passing a hash check verifies recorded bytes; it does not
 independently validate a statistical conclusion or rerun every fitted model.
-The manuscript and supplementary prose are authored and checkpointed in Overleaf.
+The manuscript is authored and checkpointed in Overleaf. Experimental evidence
+is archived in this repository.
 
 ## 1. Install a recorded version
 
@@ -47,12 +48,12 @@ Run these from the repository root. They require only the Python standard librar
 ```bash
 python paper/verify_evidence.py
 python research/verify_extension.py
-python paper/review_evidence.py --check
+python paper/analyze_diagnostics.py --check
 ```
 
 The first verifies validation and sensitivity artifacts; the second verifies
-extension source and artifact hashes; the third checks the supplementary review
-analysis manifest. Keep full Git history: the scientific analyzers below compare
+extension source and artifact hashes. The third checks the diagnostic analysis
+manifest. Keep full Git history: the scientific analyzers below compare
 source bytes against frozen commits that a shallow clone might omit.
 
 ## 4. Regenerate datasets and derived tables, without refitting
@@ -63,7 +64,7 @@ With the research dependencies installed:
 python paper/build_evidence.py
 python paper/analyze_sensitivity.py
 python paper/analyze_extension.py
-python paper/review_evidence.py
+python paper/analyze_diagnostics.py
 python paper/softwarex_figures.py
 ```
 
@@ -82,8 +83,8 @@ with rendering-library versions; raw numerical fingerprints remain explicit.
 | Pilot | `research/PROTOCOL.md`, `pilot.json` | `research/results/pilot-v1/` | Exploratory design, 20 families |
 | Validation | `research/VALIDATION_PROTOCOL.md`, `validation-*.json` | `research/results/validation-*-v1/` | 200 primary + three sets of 50 robustness families |
 | Early sensitivity | `research/SENSITIVITY_PROTOCOL.md` | See protocol and `paper/sensitivity_manifest.json` | Reuses 50 primary families; no new independent observations |
-| Crossed design | `research/EXTENSION_PROTOCOL.md` | `research/results/extension-interaction-v1/` | 100 new families; candidate range × initialization budget |
-| Factorial | Same extension protocol | `research/results/extension-generalization-v1/` | 48 cells × 30 families; 4,320 datasets |
+| Crossed design | `research/EXTENSION_PROTOCOL.md` | `research/results/extension-interaction-v1/` | 100 new families; candidate range Ã— initialization budget |
+| Factorial | Same extension protocol | `research/results/extension-generalization-v1/` | 48 cells Ã— 30 families; 4,320 datasets |
 | Operational | Same extension protocol | `research/results/extension-performance-v1/` | 120 generation/export trials; separate memory measurements |
 | Coverage | Same extension protocol | `research/results/extension-coverage-v1/` | Exact enumeration on the declared probability grid |
 
@@ -128,7 +129,7 @@ Independent families are the replication units. Conditions, starts and candidate
 counts within a family are paired, not independent observations. Approximate
 Student-t intervals are descriptive; conservative intervals are pointwise and
 do not imply simultaneous coverage across all reported comparisons. Details and
-all cellwise results are in the archived protocols and the Overleaf supplement.
+all cellwise results are in the archived protocols and tables under `paper/`.
 
 Report a reproducibility issue through [GitHub Issues](https://github.com/josemarialuna/RandomClustersGenerator/issues)
 or `jmluna@us.es`, including the command, revision, environment and complete error.
