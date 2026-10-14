@@ -6,7 +6,7 @@ import pandas as pd
 import pytest
 
 pytest.importorskip("scipy")
-from paper.review_evidence import nested_interaction
+from paper.analyze_diagnostics import nested_interaction
 
 
 def test_all_nested_outcomes_have_trinomial_interaction():
