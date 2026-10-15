@@ -35,6 +35,78 @@ def save(fig, name):
     plt.close(fig)
 
 
+def latex_figures(known):
+    """Editable Overleaf figures from the same arrays, without binary uploads."""
+    colors = ["0072B2", "D55E00", "009E73", "CC79A7"]
+    definitions = "\n".join(
+        rf"\definecolor{{study{i}}}{{HTML}}{{{color}}}" for i, color in enumerate(colors)
+    )
+    gallery = [
+        definitions,
+        r"\begin{tikzpicture}",
+        r"\begin{groupplot}[group style={group size=3 by 2,horizontal sep=0.6cm,"
+        r"vertical sep=1cm},width=0.31\textwidth,height=0.30\textwidth,"
+        r"xmin=-1.1,xmax=2,ymin=-1.1,ymax=2,xtick={-1,0,1,2},ytick={-1,0,1,2},"
+        r"tick label style={font=\scriptsize},label style={font=\small},"
+        r"title style={font=\small}]",
+    ]
+    for row in range(2):
+        for column, sigma in enumerate([0.05, 0.15, 0.30]):
+            x, y, _ = dataset(4, 0, sigma, 2)
+            options = [f"xlabel={{{'s0' if row == 0 else 'd0'}}}"]
+            if column == 0:
+                options.append(f"ylabel={{{'Signal: s1' if row == 0 else 'Nuisance: d1'}}}")
+            if row == 0:
+                options.append(rf"title={{$\sigma={sigma:.2f}$}}")
+            gallery.append(r"\nextgroupplot[" + ",".join(options) + "]")
+            for label, marker in enumerate(["*", "square*", "triangle*", "diamond*"]):
+                points = x[y == label, row * 2 : row * 2 + 2]
+                coords = " ".join(f"({a:.8f},{b:.8f})" for a, b in points)
+                gallery.append(
+                    rf"\addplot[only marks,color=study{label},mark={marker},"
+                    rf"mark size=0.65pt,opacity=0.65] coordinates {{{coords}}};"
+                )
+    gallery.extend([r"\end{groupplot}", r"\end{tikzpicture}"])
+    (OUTPUT / "dataset_gallery.tex").write_text("\n".join(gallery) + "\n", encoding="utf-8")
+    recovery = [
+        definitions,
+        r"\begin{tikzpicture}",
+        r"\begin{groupplot}[group style={group size=3 by 2,horizontal sep=0.65cm,"
+        r"vertical sep=1cm},width=0.31\textwidth,height=0.29\textwidth,"
+        r"xmin=0.03,xmax=0.32,ymin=-0.05,ymax=1.05,xtick={0.05,0.15,0.30},"
+        r"ytick={0,0.5,1},tick label style={font=\scriptsize},"
+        r"label style={font=\small},title style={font=\small},"
+        r"legend style={font=\scriptsize,draw=none},legend columns=2]",
+    ]
+    for k in [2, 4]:
+        for q in [0, 2, 8]:
+            options = [f"title={{$k={k},q={q}$}}"]
+            if q == 0:
+                options.append("ylabel={Mean known-count ARI}")
+            if k == 4:
+                options.append(r"xlabel={Dispersion $\sigma$}")
+            if k == 2 and q == 0:
+                options.append("legend to name=methodlegend")
+            recovery.append(r"\nextgroupplot[" + ",".join(options) + "]")
+            for mid, (method, name) in enumerate(METHODS):
+                frame = known[
+                    (known.true_k == k) & (known.q == q) & (known.method == method)
+                ].sort_values("sigma")
+                coords = " ".join(
+                    f"({r.sigma + (mid - 1.5) * 0.002:.6f},{r.ari:.8f}) +- (0,{r.ari_mcse:.8f})"
+                    for r in frame.itertuples()
+                )
+                marker = ["*", "square*", "triangle*", "diamond*"][mid]
+                recovery.append(
+                    rf"\addplot[color=study{mid},mark={marker},mark size=1.5pt,"
+                    rf"error bars/.cd,y dir=both,y explicit] coordinates {{{coords}}};"
+                )
+                if k == 2 and q == 0:
+                    recovery.append(rf"\addlegendentry{{{name}}}")
+    recovery.extend([r"\end{groupplot}", r"\end{tikzpicture}", r"\par\smallskip\ref{methodlegend}"])
+    (OUTPUT / "method_recovery.tex").write_text("\n".join(recovery) + "\n", encoding="utf-8")
+
+
 def main():
     verify(INPUT)
     OUTPUT.mkdir(exist_ok=True)
@@ -64,6 +136,7 @@ def main():
     save(fig, "dataset_gallery")
 
     known = pd.read_csv(INPUT / "known_k_summary.csv")
+    latex_figures(known)
     fig, axes = plt.subplots(2, 3, figsize=(7.1, 4.5), sharex=True, sharey=True)
     for row, k in enumerate([2, 4]):
         for col, q in enumerate([0, 2, 8]):

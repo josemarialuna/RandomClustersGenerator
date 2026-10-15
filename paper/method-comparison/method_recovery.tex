@@ -1,0 +1,43 @@
+\definecolor{study0}{HTML}{0072B2}
+\definecolor{study1}{HTML}{D55E00}
+\definecolor{study2}{HTML}{009E73}
+\definecolor{study3}{HTML}{CC79A7}
+\begin{tikzpicture}
+\begin{groupplot}[group style={group size=3 by 2,horizontal sep=0.65cm,vertical sep=1cm},width=0.31\textwidth,height=0.29\textwidth,xmin=0.03,xmax=0.32,ymin=-0.05,ymax=1.05,xtick={0.05,0.15,0.30},ytick={0,0.5,1},tick label style={font=\scriptsize},label style={font=\small},title style={font=\small},legend style={font=\scriptsize,draw=none},legend columns=2]
+\nextgroupplot[title={$k=2,q=0$},ylabel={Mean known-count ARI},legend to name=methodlegend]
+\addplot[color=study0,mark=*,mark size=1.5pt,error bars/.cd,y dir=both,y explicit] coordinates {(0.047000,1.00000000) +- (0,0.00000000) (0.147000,0.84445736) +- (0,0.01584520) (0.297000,0.34468774) +- (0,0.03496527)};
+\addlegendentry{K-means}
+\addplot[color=study1,mark=square*,mark size=1.5pt,error bars/.cd,y dir=both,y explicit] coordinates {(0.049000,1.00000000) +- (0,0.00000000) (0.149000,0.64274620) +- (0,0.06184073) (0.299000,0.21521865) +- (0,0.03767625)};
+\addlegendentry{Ward}
+\addplot[color=study2,mark=triangle*,mark size=1.5pt,error bars/.cd,y dir=both,y explicit] coordinates {(0.051000,0.43337701) +- (0,0.09201157) (0.151000,0.34121345) +- (0,0.08330765) (0.301000,0.08278980) +- (0,0.03470481)};
+\addlegendentry{Average linkage}
+\addplot[color=study3,mark=diamond*,mark size=1.5pt,error bars/.cd,y dir=both,y explicit] coordinates {(0.053000,1.00000000) +- (0,0.00000000) (0.153000,0.85269138) +- (0,0.01437199) (0.303000,0.32060915) +- (0,0.03857198)};
+\addlegendentry{Gaussian mixture}
+\nextgroupplot[title={$k=2,q=2$}]
+\addplot[color=study0,mark=*,mark size=1.5pt,error bars/.cd,y dir=both,y explicit] coordinates {(0.047000,1.00000000) +- (0,0.00000000) (0.147000,0.59604004) +- (0,0.07484415) (0.297000,0.19068455) +- (0,0.04750202)};
+\addplot[color=study1,mark=square*,mark size=1.5pt,error bars/.cd,y dir=both,y explicit] coordinates {(0.049000,0.96852597) +- (0,0.01745187) (0.149000,0.45077499) +- (0,0.07107633) (0.299000,0.16520844) +- (0,0.03871402)};
+\addplot[color=study2,mark=triangle*,mark size=1.5pt,error bars/.cd,y dir=both,y explicit] coordinates {(0.051000,0.40003086) +- (0,0.09096709) (0.151000,0.30783383) +- (0,0.08093892) (0.301000,0.00377342) +- (0,0.00356891)};
+\addplot[color=study3,mark=diamond*,mark size=1.5pt,error bars/.cd,y dir=both,y explicit] coordinates {(0.053000,0.96665069) +- (0,0.03334931) (0.153000,0.55336432) +- (0,0.07874948) (0.303000,0.07098831) +- (0,0.03341627)};
+\nextgroupplot[title={$k=2,q=8$}]
+\addplot[color=study0,mark=*,mark size=1.5pt,error bars/.cd,y dir=both,y explicit] coordinates {(0.047000,0.85955378) +- (0,0.05929281) (0.147000,0.36872973) +- (0,0.07863297) (0.297000,0.18848610) +- (0,0.04495162)};
+\addplot[color=study1,mark=square*,mark size=1.5pt,error bars/.cd,y dir=both,y explicit] coordinates {(0.049000,0.48297369) +- (0,0.07356994) (0.149000,0.27581456) +- (0,0.05987447) (0.299000,0.06462019) +- (0,0.01904253)};
+\addplot[color=study2,mark=triangle*,mark size=1.5pt,error bars/.cd,y dir=both,y explicit] coordinates {(0.051000,0.33390000) +- (0,0.08746482) (0.151000,0.20763806) +- (0,0.06414394) (0.301000,0.00262805) +- (0,0.00254001)};
+\addplot[color=study3,mark=diamond*,mark size=1.5pt,error bars/.cd,y dir=both,y explicit] coordinates {(0.053000,0.76879473) +- (0,0.07783418) (0.153000,0.36678379) +- (0,0.08194581) (0.303000,0.10810965) +- (0,0.03495089)};
+\nextgroupplot[title={$k=4,q=0$},ylabel={Mean known-count ARI},xlabel={Dispersion $\sigma$}]
+\addplot[color=study0,mark=*,mark size=1.5pt,error bars/.cd,y dir=both,y explicit] coordinates {(0.047000,1.00000000) +- (0,0.00000000) (0.147000,0.75574643) +- (0,0.00623662) (0.297000,0.26666797) +- (0,0.00535336)};
+\addplot[color=study1,mark=square*,mark size=1.5pt,error bars/.cd,y dir=both,y explicit] coordinates {(0.049000,1.00000000) +- (0,0.00000000) (0.149000,0.65542419) +- (0,0.01121809) (0.299000,0.21694992) +- (0,0.00464320)};
+\addplot[color=study2,mark=triangle*,mark size=1.5pt,error bars/.cd,y dir=both,y explicit] coordinates {(0.051000,1.00000000) +- (0,0.00000000) (0.151000,0.61952626) +- (0,0.01324689) (0.301000,0.08073234) +- (0,0.01396029)};
+\addplot[color=study3,mark=diamond*,mark size=1.5pt,error bars/.cd,y dir=both,y explicit] coordinates {(0.053000,1.00000000) +- (0,0.00000000) (0.153000,0.74047079) +- (0,0.00694056) (0.303000,0.23916851) +- (0,0.00702948)};
+\nextgroupplot[title={$k=4,q=2$},xlabel={Dispersion $\sigma$}]
+\addplot[color=study0,mark=*,mark size=1.5pt,error bars/.cd,y dir=both,y explicit] coordinates {(0.047000,0.93410196) +- (0,0.02448955) (0.147000,0.31233649) +- (0,0.01986388) (0.297000,0.08926727) +- (0,0.00439808)};
+\addplot[color=study1,mark=square*,mark size=1.5pt,error bars/.cd,y dir=both,y explicit] coordinates {(0.049000,0.90219639) +- (0,0.02338375) (0.149000,0.30510975) +- (0,0.01870046) (0.299000,0.08116797) +- (0,0.00642656)};
+\addplot[color=study2,mark=triangle*,mark size=1.5pt,error bars/.cd,y dir=both,y explicit] coordinates {(0.051000,0.98926474) +- (0,0.01027898) (0.151000,0.25236637) +- (0,0.02510919) (0.301000,0.01374537) +- (0,0.00318603)};
+\addplot[color=study3,mark=diamond*,mark size=1.5pt,error bars/.cd,y dir=both,y explicit] coordinates {(0.053000,0.86930165) +- (0,0.02976799) (0.153000,0.32350063) +- (0,0.02285407) (0.303000,0.02400677) +- (0,0.00387374)};
+\nextgroupplot[title={$k=4,q=8$},xlabel={Dispersion $\sigma$}]
+\addplot[color=study0,mark=*,mark size=1.5pt,error bars/.cd,y dir=both,y explicit] coordinates {(0.047000,0.33864004) +- (0,0.02781402) (0.147000,0.09442294) +- (0,0.01058933) (0.297000,0.03986255) +- (0,0.00379863)};
+\addplot[color=study1,mark=square*,mark size=1.5pt,error bars/.cd,y dir=both,y explicit] coordinates {(0.049000,0.24259745) +- (0,0.01445346) (0.149000,0.07082446) +- (0,0.00790351) (0.299000,0.02324778) +- (0,0.00267184)};
+\addplot[color=study2,mark=triangle*,mark size=1.5pt,error bars/.cd,y dir=both,y explicit] coordinates {(0.051000,0.16324606) +- (0,0.02407872) (0.151000,0.01352772) +- (0,0.00443331) (0.301000,0.00153701) +- (0,0.00057965)};
+\addplot[color=study3,mark=diamond*,mark size=1.5pt,error bars/.cd,y dir=both,y explicit] coordinates {(0.053000,0.56925632) +- (0,0.02874515) (0.153000,0.09325733) +- (0,0.01576508) (0.303000,0.01330798) +- (0,0.00264970)};
+\end{groupplot}
+\end{tikzpicture}
+\par\smallskip\ref{methodlegend}
