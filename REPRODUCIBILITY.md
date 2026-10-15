@@ -78,6 +78,45 @@ with rendering-library versions; raw numerical fingerprints remain explicit.
 
 ## 5. Locate each study
 
+### Multi-method demonstration
+
+The protocol in `research/METHOD_COMPARISON_PROTOCOL.md` fixes 18 conditions,
+30 paired families per condition, four clustering methods and three internal
+selection criteria. ARI and AMI evaluate agreement with generating labels.
+The design uses 60 independent families and 540 datasets. Repeated conditions
+within each family are not independent observations.
+
+```bash
+python research/verify_method_comparison.py research/results/method-comparison-v1
+python research/verify_method_comparison.py research/results/method-comparison-v1 --deep
+python paper/method_comparison_figures.py
+```
+
+The first command checks file hashes with the standard library. The deep audit
+regenerates datasets and recomputes all metrics from saved candidate partitions,
+without refitting. It requires the recorded source bytes and scientific environment.
+The figure script renders a prespecified gallery and cellwise recovery curves.
+The matching dependencies are pinned in `research/environment-method-comparison.txt`
+for Python 3.12.4. Install that file, then the recorded checkout with `--no-deps`.
+All 15,120 candidate records and 6,480 selection records are archived. See the
+manifest for convergence and failure counts. The frozen runner and protocol are
+at commit `7fcb923` (full revision in the manifest).
+
+To refit, use that revision and the recorded environment, then run
+`python research/method_comparison.py --output data/method-comparison-new`.
+The runner refuses an existing output directory. Figures and fixed-grid summaries
+are in `paper/method-comparison/`. They are demonstrations of the stated model,
+not general algorithm rankings.
+
+`paper/method-comparison/exploratory_geometry_diagnostic.csv` is a clearly
+post-hoc inspection of average-linkage partitions for k=2, sigma=0.05, q=0.
+It groups families by the number of coordinates whose center means vary and
+records the smallest fitted group. It is descriptive, not a prespecified
+mechanism test. This distinction matters because changing k also changes the
+distribution of randomly sampled center configurations.
+
+### Earlier studies
+
 | Study | Protocol / configuration | Saved results | Purpose |
 | --- | --- | --- | --- |
 | Pilot | `research/PROTOCOL.md`, `pilot.json` | `research/results/pilot-v1/` | Exploratory design, 20 families |

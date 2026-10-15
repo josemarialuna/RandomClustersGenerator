@@ -10,3 +10,6 @@
 *.bib text eol=lf
 # Preserve the exact pre-execution protocol bytes recorded by these manifests.
 research/results/validation-*/protocol.md -text
+# These manifests hash exact archived bytes, including native line endings.
+research/results/method-comparison-v1/* -text
+paper/method-comparison/* -text
