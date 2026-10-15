@@ -29,6 +29,12 @@ known-count ARI curves and fixed-grid ICVI table under `paper/method-comparison/
 The input archive is `research/results/method-comparison-v1/`. Its protocol fixes
 the examples before observing fitted outcomes. Run the deep audit documented in
 `REPRODUCIBILITY.md` to regenerate every dataset and verify every saved partition.
+The gallery retains family 0 with four groups and two nuisance variables.
+Its top row shows generating labels and its bottom row shows archived K-means
+partitions selected by Silhouette, with selected counts and ARI. Both rows
+project the same observations onto unstandardized signal coordinates. Fitting
+and Silhouette use all four standardized variables. Display colors identify
+groups within each panel, not matched labels between panels. No models are refitted.
 
 `python paper/softwarex_figures.py` creates two vector PDFs and PNG previews in
 `paper/softwarex/`: the package/research architecture and replicate 0 from the

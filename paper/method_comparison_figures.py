@@ -26,6 +26,8 @@ METHODS = [
     ("average", "Average linkage"),
     ("gmm", "Gaussian mixture"),
 ]
+GALLERY_COLORS = COLORS + ["#E69F00", "#56B4E9", "#666666", "#882255"]
+GALLERY_MARKERS = ["o", "s", "^", "D", "v", "P", "X", "*"]
 plt.rcParams.update({"font.size": 9, "pdf.fonttype": 42, "ps.fonttype": 42})
 
 
@@ -35,9 +37,43 @@ def save(fig, name):
     plt.close(fig)
 
 
-def latex_figures(known):
+def gallery_data():
+    """Use archived selections, with label ordering only for visual consistency."""
+    selections = pd.read_csv(INPUT / "selections.csv")
+    panels = []
+    with np.load(INPUT / "partitions.npz", allow_pickle=False) as partitions:
+        for sigma in [0.05, 0.15, 0.30]:
+            x, y, _ = dataset(4, 0, sigma, 2)
+            selected = selections.loc[
+                (selections.true_k == 4)
+                & (selections.replicate == 0)
+                & (selections.sigma == sigma)
+                & (selections.q == 2)
+                & (selections.method == "kmeans")
+                & (selections.criterion == "silhouette")
+            ]
+            assert len(selected) == 1 and selected.iloc[0].available
+            record = selected.iloc[0]
+            key = f"{record.dataset}_kmeans_{int(record.selected_k)}"
+            predicted = partitions[key]
+            # Display ranks use fitted-group signal centroids, never true labels.
+            order = sorted(
+                np.unique(predicted),
+                key=lambda label: tuple(x[predicted == label, :2].mean(axis=0)),
+            )
+            displayed = np.empty_like(predicted)
+            for rank, label in enumerate(order):
+                displayed[predicted == label] = rank
+            from sklearn.metrics import adjusted_rand_score
+
+            assert np.isclose(adjusted_rand_score(y, predicted), record.ari)
+            panels.append((sigma, x, y, displayed, int(record.selected_k), record.ari))
+    return panels
+
+
+def latex_figures(known, panels):
     """Editable Overleaf figures from the same arrays, without binary uploads."""
-    colors = ["0072B2", "D55E00", "009E73", "CC79A7"]
+    colors = [color.lstrip("#") for color in GALLERY_COLORS]
     definitions = "\n".join(
         rf"\definecolor{{study{i}}}{{HTML}}{{{color}}}" for i, color in enumerate(colors)
     )
@@ -51,16 +87,23 @@ def latex_figures(known):
         r"title style={font=\small}]",
     ]
     for row in range(2):
-        for column, sigma in enumerate([0.05, 0.15, 0.30]):
-            x, y, _ = dataset(4, 0, sigma, 2)
-            options = [f"xlabel={{{'s0' if row == 0 else 'd0'}}}"]
+        for column, (sigma, x, y, predicted, selected_k, ari) in enumerate(panels):
+            labels = y if row == 0 else predicted
+            options = ["xlabel={s0}"]
             if column == 0:
-                options.append(f"ylabel={{{'Signal: s1' if row == 0 else 'Nuisance: d1'}}}")
+                options.append(
+                    f"ylabel={{{'Generating labels: s1' if row == 0 else 'K-means: s1'}}}"
+                )
             if row == 0:
                 options.append(rf"title={{$\sigma={sigma:.2f}$}}")
+            else:
+                options.append(rf"title={{$\hat{{k}}={selected_k}$, ARI={ari:.3f}}}")
             gallery.append(r"\nextgroupplot[" + ",".join(options) + "]")
-            for label, marker in enumerate(["*", "square*", "triangle*", "diamond*"]):
-                points = x[y == label, row * 2 : row * 2 + 2]
+            for label in np.unique(labels):
+                marker = ["*", "square*", "triangle*", "diamond*", "pentagon*", "+", "x", "star"][
+                    label
+                ]
+                points = x[labels == label, :2]
                 coords = " ".join(f"({a:.8f},{b:.8f})" for a, b in points)
                 gallery.append(
                     rf"\addplot[only marks,color=study{label},mark={marker},"
@@ -110,16 +153,17 @@ def latex_figures(known):
 def main():
     verify(INPUT)
     OUTPUT.mkdir(exist_ok=True)
+    panels = gallery_data()
     fig, axes = plt.subplots(2, 3, figsize=(7.1, 4.4), layout="constrained")
-    for column, sigma in enumerate([0.05, 0.15, 0.30]):
-        x, y, _ = dataset(4, 0, sigma, 2)
-        for row, offset in enumerate([0, 2]):
+    for column, (sigma, x, y, predicted, selected_k, ari) in enumerate(panels):
+        for row, labels in enumerate([y, predicted]):
             ax = axes[row, column]
-            for label, color, marker in zip(range(4), COLORS, ["o", "s", "^", "D"], strict=True):
-                points = x[y == label]
+            for label in np.unique(labels):
+                color, marker = GALLERY_COLORS[label], GALLERY_MARKERS[label]
+                points = x[labels == label]
                 ax.scatter(
-                    points[:, offset],
-                    points[:, offset + 1],
+                    points[:, 0],
+                    points[:, 1],
                     s=8,
                     alpha=0.65,
                     c=color,
@@ -128,15 +172,17 @@ def main():
                     label=str(label),
                 )
             ax.set(xlim=(-1.1, 2.0), ylim=(-1.1, 2.0), aspect="equal")
-            ax.set_xlabel("s0" if row == 0 else "d0")
+            ax.set_xlabel("s0")
             if column == 0:
-                ax.set_ylabel("Signal: s1" if row == 0 else "Nuisance: d1")
+                ax.set_ylabel("Generating labels: s1" if row == 0 else "K-means: s1")
             if row == 0:
                 ax.set_title(rf"$\sigma={sigma:.2f}$")
+            else:
+                ax.set_title(rf"$\hat{{k}}={selected_k}$, ARI={ari:.3f}")
     save(fig, "dataset_gallery")
 
     known = pd.read_csv(INPUT / "known_k_summary.csv")
-    latex_figures(known)
+    latex_figures(known, panels)
     fig, axes = plt.subplots(2, 3, figsize=(7.1, 4.5), sharex=True, sharey=True)
     for row, k in enumerate([2, 4]):
         for col, q in enumerate([0, 2, 8]):

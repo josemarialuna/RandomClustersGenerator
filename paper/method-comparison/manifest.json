@@ -1,14 +1,14 @@
 {
   "input_manifest_sha256": "f608c5555fc3765140fec890a7d2e71b351cfd0b5be36ae3f2535b0e26c0f224",
-  "script_sha256": "a9422958d46f4c4a769541636158a62f14c817770e6a422c5ac6078c5e38f74a",
+  "script_sha256": "d359e40fbbc8044901704de0619cee863e53e041f7346416a3a25b435223e370",
   "files": {
-    "dataset_gallery.pdf": "950188da3d8e7cbffc5c927a58b4932155ddda8c43c3233e3fa1450a60a0c8a9",
-    "dataset_gallery.png": "45ca37e4752f7f4f1a7a2d9ec4f00281bc066f53725c27eb8bd49c4b2917c5a4",
-    "dataset_gallery.tex": "b301422296152e62d44794cb474e83bb17c087cf24bbc379d400790dfe040160",
+    "dataset_gallery.pdf": "37db3c943cf7aea355bba79c212133a65e2713a598720e7b4cf500484541e32b",
+    "dataset_gallery.png": "074eae20fa830d79335b3f26b41e32520f48c253e97dd307f420105349e5ff5c",
+    "dataset_gallery.tex": "259cb096f8f48e01243b0c645c0df82343301523a1c56825e4631c26d01715c8",
     "exploratory_geometry_diagnostic.csv": "5a0c18fef318c5bfce2f9f90a8a3a3c4fcddfdcd440675fb7af39ce4e1fa6565",
     "method_recovery.pdf": "0dd537753f2860ee03fe39cce7ceeb6f43289a7de1c5b55f0c5ad3d993d3433e",
     "method_recovery.png": "2cf169cfd62adc3928510c95a023ab79e2d7df753f6fd110e8d698b380b7e519",
-    "method_recovery.tex": "57c6b5f1cf55fd749b28fc35aa912ceb0f747d7d8dff15e8771c55d49f50ac77",
+    "method_recovery.tex": "dc15da2b274fd2ffeaa08e5c274b1aa1c250104e999a155776b8281f36e85a0e",
     "selection_grid_summary.csv": "4c7442b01c0a3a53c6187ac29524f7faf937deebdfa2fa2f1a67de668fb5f9f4"
   }
 }
