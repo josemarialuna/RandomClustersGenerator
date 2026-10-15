@@ -1,0 +1,35 @@
+{
+  "revision": "7fcb923dbccf90365b413883275bc57c2394e55a",
+  "environment": {
+    "numpy": "2.5.3",
+    "pandas": "2.3.3",
+    "scikit-learn": "1.9.1",
+    "scipy": "1.18.1",
+    "threadpoolctl": "3.7.0"
+  },
+  "python": "3.12.4",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "counts": {
+    "datasets": 540,
+    "fits": 15120,
+    "selections": 6480
+  },
+  "status_counts": {
+    "ok": 15120
+  },
+  "sources": {
+    "research/method_comparison.py": "e5a649ae3863a7444704502882ed4dd73f580cb32d511fe00128f0212d9af49f",
+    "research/METHOD_COMPARISON_PROTOCOL.md": "85f620854ac5b595806389c56aaf7785c4e25eceb86020ee74874a03feb5bf2e",
+    "src/random_clusters/core.py": "0cd6a9ba517d3e583227f38c127cc0946ce19af29052ddfce53da0ff30279858"
+  },
+  "files": {
+    "config.json": "dc70caa4b184b4ef9198096f59691e2ed4b9973ea2b9667e9b7909f68c6f532c",
+    "datasets.csv": "20dc866dc4fdac85d6c4735640cbf1a01fa0c14e8fef294a239805be58c5500b",
+    "fits.csv": "91d66e764ff0396b604903b37045a7e592ea082243af892159fd0fa325d0ca2b",
+    "index_disagreement.csv": "4291b21bb2ff1c9a82a409575bce91b4f142ce91f4bab696645c3de694355b2a",
+    "known_k_summary.csv": "05e566c2b028bb281b449c0cdf15fc75551dc4593ede52ffe959b334934e2088",
+    "partitions.npz": "657db7024196ebfbb6746a67f2efdc202b424748d5a4e8afd26427f4ae94aab7",
+    "selection_summary.csv": "54253f5b2cb4da604d8fb775b96c633cde8c460727d931003d2624237e324294",
+    "selections.csv": "4c88e341837a160b6bb67e8e1ab17e9a96e1b9a727a2d835c4e910ccedbcc848"
+  }
+}

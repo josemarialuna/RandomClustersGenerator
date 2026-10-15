@@ -1,0 +1,36 @@
+{
+  "master_seed": 2026101501,
+  "replicates": 30,
+  "n": 400,
+  "p": 2,
+  "groups": [
+    2,
+    4
+  ],
+  "sigma": [
+    0.05,
+    0.15,
+    0.3
+  ],
+  "q": [
+    0,
+    2,
+    8
+  ],
+  "methods": [
+    "kmeans",
+    "ward",
+    "average",
+    "gmm"
+  ],
+  "candidate_k": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "preprocessing": "StandardScaler"
+}

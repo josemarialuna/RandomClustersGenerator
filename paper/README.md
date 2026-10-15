@@ -24,6 +24,12 @@ the recorded artifacts without optional scientific dependencies.
 
 ## SoftwareX illustrations
 
+`python paper/method_comparison_figures.py` renders the multi-method gallery,
+known-count ARI curves and fixed-grid ICVI table under `paper/method-comparison/`.
+The input archive is `research/results/method-comparison-v1/`. Its protocol fixes
+the examples before observing fitted outcomes. Run the deep audit documented in
+`REPRODUCIBILITY.md` to regenerate every dataset and verify every saved partition.
+
 `python paper/softwarex_figures.py` creates two vector PDFs and PNG previews in
 `paper/softwarex/`: the package/research architecture and replicate 0 from the
 frozen primary design. The data example is selected by protocol order, not by

@@ -12,6 +12,10 @@ def verify(directory, deep=False):
         if hashlib.sha256((directory / name).read_bytes()).hexdigest() != expected:
             raise ValueError(f"Artifact changed: {name}")
     if deep:
+        root = Path(__file__).resolve().parents[1]
+        for name, expected in manifest["sources"].items():
+            if hashlib.sha256((root / name).read_bytes()).hexdigest() != expected:
+                raise ValueError(f"Use the archived source revision for deep replay: {name}")
         import numpy as np
         import pandas as pd
         from method_comparison import choose, dataset, fingerprint, scores
@@ -49,6 +53,8 @@ def verify(directory, deep=False):
                     if best:
                         assert row["selected_k"] == best["candidate_k"]
                         assert row["correct"] == (best["candidate_k"] == row["true_k"])
+                        np.testing.assert_allclose(row["ari"], best["ari"], atol=1e-12)
+                        np.testing.assert_allclose(row["ami"], best["ami"], atol=1e-12)
         print(f"Audited {len(records)} datasets and {len(fits)} candidate records")
     print("Verified method-comparison archive")
 

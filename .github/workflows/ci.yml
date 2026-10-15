@@ -57,6 +57,7 @@ jobs:
       - run: python paper/verify_evidence.py
       - run: python research/verify_extension.py
       - run: python paper/analyze_diagnostics.py --check
+      - run: python research/verify_method_comparison.py research/results/method-comparison-v1
       - run: |
           for diagnostic in range starts; do
             python research/verify_artifacts.py research/results/sensitivity-${diagnostic}-v1
