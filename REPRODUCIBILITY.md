@@ -6,7 +6,15 @@ independently validate a statistical conclusion or rerun every fitted model.
 The manuscript is authored and checkpointed in Overleaf. Experimental evidence
 is archived in this repository.
 
-## 1. Install a recorded version
+## New paired API (1.1)
+
+The 1.1 public workflow is documented in [docs/paired-api.md](docs/paired-api.md).
+Use the version containing `examples/paired/` for those examples. The historical
+instructions below deliberately select v1.0.0 and do not contain the later
+multi-method study or the new API. For each later study, use its explicitly
+recorded source revision and environment, not the v1.0.0 checkout.
+
+## 1. Install the historical recorded version
 
 ```bash
 git clone https://github.com/josemarialuna/RandomClustersGenerator.git
