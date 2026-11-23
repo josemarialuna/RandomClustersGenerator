@@ -36,6 +36,7 @@
     "summary/paired_recovery.pdf": "6ebdd7f92fca308ec8d024d53219c06636751bac92a987ab13cb594beab2dbd3",
     "summary/paired_recovery.png": "3733593e9df5b380f0fbce5c98c91571b6d25bffad7485009176bf2e590b090d",
     "summary/selection.csv": "5138fa9de917a69e2352f8af09dc713faf4ace76d790263409ae7579e2f8d87e",
-    "summary/summary.json": "7268d7481bd0da059f73c1d2403b70bb9f795bb3604a8b3fc8eae96117e765fb"
+    "summary/summary.json": "7268d7481bd0da059f73c1d2403b70bb9f795bb3604a8b3fc8eae96117e765fb",
+    "analysis/summarize_paired.py": "b9c1900539384f18a674ceb0e05a21caea962a9280dc4199a159ac3829a9f096"
   }
 }
