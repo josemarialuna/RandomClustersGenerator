@@ -1,0 +1,120 @@
+GUÍA PARA LOS AUTORES — NO INCLUIR EN EL PAQUETE DEL PARTICIPANTE
+Protocolo 1.0, 23 de noviembre de 2026
+
+1. QUÉ ESTAMOS EVALUANDO
+
+Viabilidad de uso independiente de RandomClustersGenerator v1.1.0 en una tarea
+acotada: adaptar un diseño, verificar el emparejamiento, analizar ajustes y
+selecciones, y reproducir una figura desde el archivo. No mide ahorro de tiempo
+frente a otra herramienta, superioridad de algoritmos ni adopción general.
+
+Es una concreción exploratoria del protocolo propuesto en
+docs/external-evaluation.md. Aquí NO se realiza el diseño comparativo con
+herramientas y orden contrabalanceado de aquella propuesta. No describirlo como
+si se hubiera completado dicho estudio. No hay resultados humanos todavía.
+
+Participante: investigador con conocimientos de Python y clustering, ajeno al
+desarrollo. Un participante aporta un caso, no una estimación poblacional de
+usabilidad. Si se incorporan más, usar el mismo paquete y comunicar todos los
+casos. No seleccionar solo el caso más favorable.
+
+2. ANTES DE ENVIAR
+
+- Asignar P01, P02, etc. Mantener identidades separadas de los resultados.
+- Enviar únicamente los tres archivos de participant/ en un ZIP.
+- Acordar un canal privado de devolución y explicar que se puede abandonar.
+- Confirmar los requisitos institucionales aplicables antes de tratarlo como
+  investigación con participantes. La ficha de permiso no sustituye un proceso
+  institucional cuando este sea necesario.
+- Registrar la versión y SHA-256 del ZIP enviado. No modificarlo durante una
+  ejecución. Si hace falta cambiarlo, crear v1.1 y registrar qué cambió.
+- No enviar resultados esperados, scripts resueltos ni nuestras figuras.
+- No publicar perfiles, respuestas, logs o identidades en el repositorio.
+
+3. DURANTE LA EJECUCIÓN
+
+No observar ni orientar en directo. El investigador puede usar las fuentes
+indicadas, pero no ayuda de personas o IA en la fase independiente. El límite
+son 120 minutos activos. Las esperas y pausas se registran por separado.
+
+Si pide ayuda, guardar primero el estado y el bloqueo. Se puede ayudar después,
+pero separar resultados previos y posteriores. No reclasificar una tarea
+asistida como completada de forma independiente. Registrar también abandonos.
+
+4. CRITERIOS FIJADOS ANTES DE RECIBIR RESULTADOS
+
+Registrar por tarea: completada independiente, parcial, bloqueada o asistida.
+Las notas de facilidad son preguntas exploratorias, NO una escala validada.
+
+T0. Instalación: versión y entorno documentados. Quickstart completo y auditoría
+profunda satisfactoria. Un fallo de instalación también es un resultado.
+
+T1. Adaptación: configuración coincide con el enunciado, nueve datasets,
+108 registros de ajustes y 108 de selección, manifiesto completo. Se conserva
+cualquier fallo de ajuste. No exigir un valor concreto de ARI ni cero fallos.
+
+T2. Comprensión: comprobaciones ejecutables de filas, tamaños, señal, etiquetas,
+identidades y prefijos de ruido. Exclusión explícita de cluster y row_id del
+ajuste. Las afirmaciones sin comprobación se anotan como evidencia insuficiente.
+
+T3. Análisis: resumen con 12 combinaciones y denominadores, nueve selecciones,
+figura trazable a los archivos, sin valores de resultados escritos manualmente.
+Verificar medias y decisiones frente al archivo. Las etiquetas generadoras
+solo intervienen en evaluación, no en selección. La interpretación debe
+distinguir acuerdo, selección del número de grupos y alcance de tres réplicas.
+
+T4. Reproducción: ejecutar SU script desde otra carpeta de salida utilizando
+el archivo guardado. Comparar tablas con tolerancia 1e-10, incluyendo NaN,
+claves y conteos. Inspeccionar que no llama a fit ni al runner de experimentos.
+No exigir igualdad binaria de PDF/PNG. Guardar nuestros comandos de verificación.
+
+Resultado principal: tareas completadas sin asistencia y con sus artefactos
+verificados. Presentar el vector T0–T4, no ocultar diferencias en una nota global.
+Resultado secundario: tiempo activo y esperas por tarea, incidencias, ayudas,
+comprensión y facilidad declarada. Con un caso, no calcular intervalos,
+significancia ni porcentajes que sugieran precisión poblacional.
+
+5. RECEPCIÓN Y VERIFICACIÓN
+
+- Conservar el ZIP original en almacenamiento privado. Registrar su SHA-256.
+- Extraerlo en una carpeta nueva. Revisar los scripts antes de ejecutarlos.
+  No ejecutar comandos destructivos, acceso a red inesperado ni instalación
+  adicional sin entenderlos. Usar un entorno separado para el análisis recibido.
+- Revisar RESPUESTAS.txt, TIEMPOS.csv, revisión y dependencias. Confirmar qué
+  tareas terminaron antes del límite y qué ayuda hubo.
+- Ejecutar el auditor público sobre el archivo recibido. Usar el entorno
+  registrado si aparecen discrepancias. No corregir resultados originales.
+- Ejecutar python research/check_independent_case.py RUTA/entrega/experimento
+  --output RUTA/verificacion-autores (todo en una sola línea) para
+  comprobar diseño, emparejamiento, conteos y resumen de referencia. Este script
+  es una comprobación de los autores, NO evidencia de que el participante hizo
+  sus comprobaciones. Separa ambos resultados.
+- Reejecutar sus scripts de inspección y análisis. Contrastar resumen.csv y
+  seleccion.csv con las tablas de referencia que genera el comprobador.
+- Registrar cada discrepancia, su explicación y si requiere corregir software,
+  documentación, instrucciones o análisis del participante.
+
+6. QUÉ NECESITAMOS RECOGER
+
+Por participante: versión del paquete enviado, perfil categórico, autorización,
+estado independiente/asistido de cada tarea, minutos activos, esperas, intentos,
+ayudas y desviaciones. Además, configuración, revisión Git, entorno, archivo
+completo del runner, scripts propios, comprobaciones, tablas, figuras y logs.
+
+De nuestra evaluación: tabla T0–T4, auditoría, comparación numérica, incidencias
+reproducibles y cambios de documentación o código derivados. Mantener separados
+lo declarado por el participante y lo verificado por nosotros.
+
+7. CÓMO PODRÍA CONTARSE EN EL PAPER
+
+Solo después de recibir y verificar los resultados. Informar de que fue un caso
+exploratorio de un investigador no implicado en el desarrollo, su experiencia
+en categorías amplias, tareas, recursos permitidos, versión, límite temporal y
+si necesitó ayuda. Describir éxitos y bloqueos. No llamarlo validación de
+productividad ni prueba de adopción. No insertar datos o citas sin autorización.
+
+Una ejecución asistida o incompleta puede revelar mejoras útiles, pero no
+respalda la afirmación de ejecución autónoma completa. Después de corregir
+problemas, una segunda ejecución debe identificarse como tal y considerar el
+aprendizaje previo. Para comprobar la documentación corregida sin ese efecto,
+conviene otro participante.

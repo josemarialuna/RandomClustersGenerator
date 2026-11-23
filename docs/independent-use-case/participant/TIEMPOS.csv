@@ -1,0 +1,6 @@
+codigo,tarea,inicio,fin,minutos_activos,minutos_espera_maquina,minutos_pausa,estado,intentos,ayuda_externa,observaciones
+,0_instalacion,,,,,,,,,
+,1_adaptacion,,,,,,,,,
+,2_comprobaciones,,,,,,,,,
+,3_analisis_figura,,,,,,,,,
+,4_reproduccion,,,,,,,,,

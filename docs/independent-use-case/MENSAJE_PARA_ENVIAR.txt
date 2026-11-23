@@ -1,0 +1,24 @@
+Hola,
+
+Estamos revisando RandomClustersGenerator y nos vendría bien que un investigador
+ajeno al desarrollo probase un caso de uso sin nuestra ayuda.
+
+Te adjunto las instrucciones y dos plantillas para registrar el resultado.
+La tarea consiste en adaptar un experimento de clustering, comprobar que los
+datasets están emparejados y generar una figura reproducible. Puedes consultar
+la documentación indicada. Para esta primera prueba, te pedimos que no uses
+asistentes de IA ni ayuda de otras personas, y que registres cualquier bloqueo.
+
+Tu código de participante es: [ASIGNAR P01, P02, ...].
+
+Reserva como máximo dos horas de trabajo activo. No hace falta que lo termines
+todo: si algo no se entiende o no funciona, eso también nos interesa. No estamos
+evaluando tu capacidad ni esperamos comentarios favorables.
+
+Al terminar, devuélveme por este mismo canal el ZIP con los archivos que indica
+la guía, las respuestas y los tiempos. No incluyas el entorno virtual ni datos
+personales. En la ficha puedes indicar si autorizas utilizar los resultados
+anonimizados en el artículo y, por separado, tus comentarios textuales.
+
+Gracias por ayudarnos a comprobar si las instrucciones y el flujo de trabajo
+se pueden seguir de forma autónoma.
