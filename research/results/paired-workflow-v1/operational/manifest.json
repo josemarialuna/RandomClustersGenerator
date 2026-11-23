@@ -1,0 +1,76 @@
+{
+  "platform": "Windows-11-10.0.26300-SP0",
+  "processor": "Intel64 Family 6 Model 167 Stepping 1, GenuineIntel",
+  "python": "3.12.4",
+  "numpy": "2.5.3",
+  "pandas": "2.3.3",
+  "checks": [
+    {
+      "n": 200,
+      "condition": {
+        "scale": 0.1,
+        "noise": 0
+      },
+      "exact_equality": true
+    },
+    {
+      "n": 200,
+      "condition": {
+        "scale": 0.1,
+        "noise": 2
+      },
+      "exact_equality": true
+    },
+    {
+      "n": 200,
+      "condition": {
+        "scale": 0.25,
+        "noise": 8
+      },
+      "exact_equality": true
+    },
+    {
+      "n": 2000,
+      "condition": {
+        "scale": 0.1,
+        "noise": 0
+      },
+      "exact_equality": true
+    },
+    {
+      "n": 2000,
+      "condition": {
+        "scale": 0.1,
+        "noise": 2
+      },
+      "exact_equality": true
+    },
+    {
+      "n": 2000,
+      "condition": {
+        "scale": 0.25,
+        "noise": 8
+      },
+      "exact_equality": true
+    }
+  ],
+  "conditions": [
+    {
+      "scale": 0.1,
+      "noise": 0
+    },
+    {
+      "scale": 0.1,
+      "noise": 2
+    },
+    {
+      "scale": 0.25,
+      "noise": 8
+    }
+  ],
+  "scope": "generation, CSV/JSON export, hashes, numerical replay; no clustering",
+  "sources": {
+    "paired_operational.py": "945db57aed3a1137906b8111a0405324b28e919fe634a8c49722ce673138e81c",
+    "paired_baseline.py": "82ad471f0cf93090f63aad422449a115b791e3774ac4d6a70e3557b8b0e8567e"
+  }
+}

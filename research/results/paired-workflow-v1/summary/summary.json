@@ -1,0 +1,8 @@
+{
+  "datasets": 600,
+  "fits": 24000,
+  "selections": 14400,
+  "invalid_fits": 0,
+  "unavailable_selections": 0,
+  "source_hash": "b9c1900539384f18a674ceb0e05a21caea962a9280dc4199a159ac3829a9f096"
+}

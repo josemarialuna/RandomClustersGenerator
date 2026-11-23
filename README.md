@@ -28,6 +28,33 @@ Use it to test cluster recovery, feature selection, or sensitivity to irrelevant
 features and overlap. This is a controlled synthetic model; it does not reproduce
 every property of real-world datasets.
 
+## Paired experiments (1.1)
+
+For controlled comparisons, use the new public `FamilyConfig`, `PairedFamily`
+and `Condition` API. It supports explicit centers, unequal component sizes and
+full covariance matrices. Labels and row IDs are separate from fitting features.
+Changing noise count preserves signal and existing noise columns.
+
+Start with the [complete API tutorial](docs/paired-api.md). For a small end-to-end
+example after installing the research extra:
+
+```bash
+python -m pip install ".[research]"
+python -m random_clusters.experiment examples/paired/quickstart.json data/paired-demo
+python -m random_clusters.experiment data/paired-demo --audit --deep
+```
+
+The directory contains datasets, replay metadata, every candidate partition,
+internal and external scores, selection decisions and a completion manifest.
+The audit regenerates data and recalculates metrics without fitting again.
+See the [evaluation protocol](research/PAIRED_WORKFLOW_PROTOCOL.md) for the
+larger examples. These demonstrate a workflow, not independent adoption or
+universal clustering rankings.
+
+The legacy commands below retain their original sampling convention. The new
+paired API uses a separate versioned convention. Equal seeds across interfaces
+do not imply identical datasets.
+
 ## 1. Install
 
 Requires **Python 3.10 or newer**. Works on Windows, macOS, and Linux.

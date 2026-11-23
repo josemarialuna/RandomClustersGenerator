@@ -55,9 +55,20 @@ jobs:
             python research/verify_artifacts.py research/results/validation-${scenario}-v1
           done
       - run: python paper/verify_evidence.py
+      # Historical manifests intentionally pin the original package initializer.
+      # Verify them in their own revision, without changing archived checksums.
+      - uses: actions/checkout@v4
+        with:
+          ref: 3666d479f590236a32b34cceeb85163cf362ebd3
+          path: data/historical-evidence
       - run: python research/verify_extension.py
+        working-directory: data/historical-evidence
       - run: python paper/analyze_diagnostics.py --check
+        working-directory: data/historical-evidence
       - run: python research/verify_method_comparison.py research/results/method-comparison-v1
+      - run: python research/verify_paired_archive.py research/results/paired-workflow-v1
+      - run: python -m random_clusters.experiment examples/paired/quickstart.json data/paired-smoke
+      - run: python -m random_clusters.experiment data/paired-smoke --audit --deep
       - run: |
           for diagnostic in range starts; do
             python research/verify_artifacts.py research/results/sensitivity-${diagnostic}-v1
