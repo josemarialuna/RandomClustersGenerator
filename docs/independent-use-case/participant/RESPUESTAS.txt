@@ -1,0 +1,72 @@
+CASO DE USO — RESPUESTAS DEL INVESTIGADOR
+
+Código asignado:
+Fecha:
+He participado en el desarrollo de RandomClustersGenerator: sí / no
+He usado anteriormente este paquete: nunca / una vez / varias veces
+Experiencia con Python: inicial / intermedia / avanzada
+Experiencia con clustering: inicial / intermedia / avanzada
+Sistema operativo y versión:
+RAM aproximada, si la conoces:
+Python utilizado:
+
+Participación voluntaria: sí / no
+Autorizo usar los resultados anonimizados en el artículo: sí / no
+Autorizo citar literalmente comentarios anónimos de esta ficha: sí / no
+Si no autorizas publicación, los comentarios se usarán solo para mejorar el software.
+
+ESTADO FINAL
+Para cada tarea: completada / parcial / no iniciada / bloqueada.
+Tarea 0, instalación:
+Tarea 1, adaptación:
+Tarea 2, comprobaciones:
+Tarea 3, análisis y figura:
+Tarea 4, reproducción:
+Qué había completado al alcanzar 120 minutos activos, si llegué al límite:
+Trabajo adicional realizado después de ese límite:
+
+COMANDOS
+Comando para ejecutar el caso y directorio desde el que se ejecuta:
+Comando de auditoría:
+Comando para inspeccionar los datasets:
+Comando para generar resumen y figura:
+Comando para reproducirlos en una carpeta nueva:
+Archivos de entrada que requiere el análisis:
+
+COMPRENSIÓN
+Qué permanece fijo al cambiar q y cómo lo has comprobado:
+Qué columnas has excluido del ajuste y por qué:
+Qué comprueba la auditoría profunda y qué no comprueba:
+¿Se han vuelto a ajustar los métodos al reproducir la figura?: sí / no
+¿Coinciden las tablas numéricas de las dos ejecuciones del análisis?: sí / no
+Cómo las has comparado y qué diferencias has observado:
+
+INTERPRETACIÓN (5–10 líneas)
+Qué muestran ARI/AMI al variar q y el preprocesamiento:
+Qué eligen los índices internos en q=4:
+Por qué seleccionar k=4 no equivale necesariamente a recuperar las etiquetas:
+Qué no puede concluirse con estas tres réplicas:
+
+PROBLEMAS Y AYUDAS
+Por cada incidencia, indica: tarea, acción, qué esperabas, qué ocurrió,
+mensaje de error, recurso consultado, solución o bloqueo y tiempo aproximado.
+Incluye también cualquier petición de ayuda y el resultado antes de recibirla.
+
+Recursos consultados (URL o ruta, con una frase sobre su utilidad):
+Ayuda de personas o IA (indicar ninguna si no hubo):
+Cambios respecto al protocolo y motivo:
+
+VALORACIÓN
+Puntúa de 1 (muy difícil) a 5 (muy fácil), o N/A si no lo has intentado.
+Instalación:
+Adaptación de la configuración:
+Comprensión de entradas y salidas:
+Auditoría:
+Análisis y reproducción:
+
+Lo que más tiempo te ha hecho perder:
+Una instrucción concreta que faltaba o era confusa:
+Qué parte del paquete reutilizarías, si alguna, y para qué:
+Qué resolverías con un script propio en lugar de este paquete:
+Qué cambiarías antes de recomendarlo a un compañero:
+Otros comentarios:

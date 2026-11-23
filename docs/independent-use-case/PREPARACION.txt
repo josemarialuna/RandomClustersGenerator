@@ -1,0 +1,22 @@
+ESTADO DEL PAQUETE
+
+Protocolo 1.0. Preparado el 23 de noviembre de 2026.
+Software evaluado: etiqueta v1.1.0. No modificarla durante la evaluación.
+
+Se ha ejecutado una comprobación técnica por los autores del diseño solicitado:
+nueve datasets, 108 ajustes, 108 selecciones y auditoría profunda satisfactoria.
+Se han comprobado los invariantes de emparejamiento y el rechazo de una semilla
+incorrecta por el verificador. Esto NO es una evaluación con un investigador
+independiente. No hay resultados humanos ni tiempos de uso medidos.
+
+El paquete que se envía al participante contiene exclusivamente:
+  LEEME_PRIMERO.txt
+  RESPUESTAS.txt
+  TIEMPOS.csv
+
+Los restantes documentos y research/check_independent_case.py son para los
+autores. No enviar respuestas resueltas ni la ejecución técnica de preparación.
+
+EVALUACION_AUTORES.csv permite registrar la evaluación T0–T4 después de recibir
+los archivos. Revisar los scripts recibidos y ejecutar el verificador en un
+entorno separado. Mantener todos los datos de participantes fuera de GitHub.

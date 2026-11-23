@@ -3,6 +3,12 @@
 No results, participant counts or adoption claims are available. This document
 is a preparation aid for the authors and is not evidence of independent use.
 
+A bounded exploratory case is prepared in `docs/independent-use-case/`.
+Send only its `participant/` files. `COORDINACION.txt` defines assessment and
+handling of records. That case has no comparator and must not be described as
+the counterbalanced productivity study proposed below. No participant has yet
+completed either protocol.
+
 Recruit researchers with clustering experience who did not develop the package.
 Agree institutional ethics/consent requirements before collecting participant
 data. Keep identities and raw participant records out of the public repository.

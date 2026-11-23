@@ -1,0 +1,176 @@
+CASO DE USO INDEPENDIENTE — RandomClustersGenerator 1.1.0
+Protocolo 1.0, 23 de noviembre de 2026
+
+OBJETIVO
+
+Queremos comprobar si un investigador ajeno al desarrollo puede adaptar un
+experimento, inspeccionar sus resultados y reproducir una figura usando la
+documentación. Nos interesan tanto los éxitos como los bloqueos. No estamos
+evaluando tu capacidad como investigador y no esperamos un resultado favorable
+al software ni a un algoritmo concreto.
+
+La pregunta de trabajo es: ¿cómo cambia el acuerdo con los grupos generadores
+al añadir variables irrelevantes, con y sin estandarización, en grupos de
+tamaños desiguales? También distinguirás fijar el número de grupos de elegirlo
+mediante índices internos.
+
+Esta es una prueba pequeña de uso. Tres realizaciones permiten practicar el
+flujo, pero no sostienen conclusiones generales sobre métodos de clustering.
+
+ANTES DE EMPEZAR
+
+Necesitas un equipo con Git, Python 3.10 o posterior, conexión a Internet y
+permiso para instalar paquetes dentro de un entorno virtual. Recomendamos
+Python 3.12. No necesitas GPU. No se requiere haber usado este paquete.
+
+Reserva hasta 120 minutos de trabajo activo. Es un límite práctico, no una
+predicción del tiempo necesario. Puedes parar antes o continuar después, pero
+anota qué habías conseguido al llegar al límite. Registra las esperas de la
+máquina aparte del tiempo de trabajo activo y de las pausas personales.
+
+El coordinador te asignará un código, por ejemplo P01. No escribas tu nombre,
+correo o institución en los archivos de resultados. Rellena primero el perfil
+breve de RESPUESTAS.txt. Es voluntario participar y puedes dejar cualquier tarea
+sin terminar. Indica por separado si autorizas el uso de resultados anónimos y
+de citas textuales anónimas. No necesitamos grabación de pantalla ni voz.
+
+Puedes consultar la documentación del repositorio, documentación oficial de
+Python y sus bibliotecas, y búsquedas generales. Registra los recursos útiles.
+Para esta primera ejecución no uses asistentes de IA ni recibas ayuda de los
+autores o de otras personas. Si recurres a esa ayuda, indícalo y guarda lo que
+habías completado antes. La ejecución se considerará asistida, no un fracaso
+personal. No ocultes pasos que no hayan funcionado.
+
+TAREA 0. INSTALAR Y COMPROBAR EL EJEMPLO
+
+Abre una terminal y ejecuta cada comando en una línea independiente:
+
+git clone --branch v1.1.0 --depth 1 https://github.com/josemarialuna/RandomClustersGenerator.git
+cd RandomClustersGenerator
+python -m venv .venv
+
+Activa el entorno según tu sistema:
+  Windows PowerShell: .\.venv\Scripts\Activate.ps1
+  Windows cmd:        .venv\Scripts\activate.bat
+  Linux/macOS:        source .venv/bin/activate
+
+Si PowerShell bloquea la activación, usa cmd o invoca directamente
+.venv\Scripts\python.exe en lugar de python. No cambies las políticas del equipo.
+En algunos sistemas, antes de activar el entorno el comando es python3.
+
+python -m pip install ".[research]"
+mkdir entrega
+git rev-parse HEAD > entrega/revision.txt
+python --version > entrega/python.txt
+python -m pip freeze > entrega/dependencias.txt
+python -m random_clusters.experiment examples/paired/quickstart.json entrega/quickstart > entrega/quickstart-ejecucion.log 2>&1
+python -m random_clusters.experiment entrega/quickstart --audit --deep > entrega/quickstart-auditoria.log 2>&1
+
+El estado detached HEAD al descargar una etiqueta es normal. No necesitas
+crear una rama, publicar nada ni modificar el código del paquete.
+
+Consulta estas guías, incluidas también en el repositorio descargado:
+  docs/paired-api.md
+  docs/workflows.md
+  REPRODUCIBILITY.md
+
+El ejemplo pequeño produce dos datasets y seis registros de ajustes. Comprueba
+los mensajes de ejecución y auditoría. Si algo falla, conserva el mensaje
+completo y registra qué intentaste. No borres una ejecución parcial para
+presentar únicamente la que funcionó. Usa directorios nuevos para los reintentos.
+
+TAREA 1. ADAPTAR Y EJECUTAR UN EXPERIMENTO
+
+Crea entrega/caso.json adaptando el ejemplo, con estos requisitos:
+
+  Centros: (0,0), (0,1), (1,0), (1,1), en ese orden.
+  Tamaños por grupo: 20, 40, 60 y 80. Total: 200 observaciones.
+  Dos coordenadas base. Covarianza identidad en cada grupo.
+  Semilla raíz: 20261123. Tres réplicas. Mezcla de filas activada.
+  Escala residual: 0.10 en todas las condiciones.
+  Tres condiciones, en este orden: 0, 4 y 8 variables irrelevantes uniformes.
+  Métodos: kmeans y ward.
+  Número de grupos candidato: 3, 4 y 5.
+  Preprocesamientos: raw y standardized.
+  K-means: 10 inicializaciones y máximo 300 iteraciones.
+
+Usa la interfaz pública y el runner documentados. Elige como salida
+entrega/experimento. Guarda el comando y su salida en entrega/ejecucion.log.
+Ejecuta después una auditoría profunda y guarda entrega/auditoria.log.
+
+Esperamos nueve datasets, 108 ajustes candidatos y 108 registros de selección.
+Los registros con fallos también cuentan. No cambies los parámetros para que
+aparezca un resultado concreto. Si no consigues terminar, entrega igualmente
+la configuración, los errores y los archivos que se hayan generado.
+
+TAREA 2. COMPROBAR QUÉ SE CONSERVA ENTRE CONDICIONES
+
+Escribe entrega/inspeccionar.py, o un notebook equivalente, que lea los archivos
+de la primera réplica y compruebe de forma automática:
+
+  1. Las tres condiciones contienen 200 observaciones.
+  2. Los tamaños de los grupos son los solicitados.
+  3. Las columnas base s0 y s1, las etiquetas y los identificadores de fila
+     coinciden exactamente entre las tres condiciones.
+  4. Las primeras cuatro columnas de ruido coinciden entre q=4 y q=8.
+  5. Las tablas de variables tienen 2, 6 y 10 columnas, respectivamente,
+     sin contar row_id y cluster.
+
+Guarda las comprobaciones y sus resultados en entrega/comprobaciones.txt.
+Explica qué columnas deben excluirse del ajuste de clustering y por qué.
+No basta con afirmar que los puntos parecen iguales en una gráfica.
+
+TAREA 3. OBTENER RESULTADOS Y UNA FIGURA
+
+Escribe entrega/analizar.py, o un notebook equivalente. Debe leer los resultados
+guardados, no volver a ajustar los métodos ni incluir resultados numéricos
+copiados manualmente en el código.
+
+A. Genera entrega/resumen.csv usando los candidatos con k=4. Para cada
+   combinación de q, método y preprocesamiento, incluye estas columnas:
+   noise, method, preprocessing, mean_ari, mean_ami, valid, total.
+   Calcula las medias sobre ajustes válidos. Si no hay ninguno, deja las medias
+   vacías. Informa siempre de valid y total. Deben existir 12 combinaciones.
+
+B. Genera entrega/figura.png y entrega/figura.pdf a partir de ese resumen.
+   Muestra ARI medio frente al número de variables irrelevantes. Distingue los
+   dos métodos y los dos preprocesamientos, con ejes y leyenda comprensibles.
+   Puedes elegir el diseño visual. No necesitamos imitar la estética del paper.
+
+C. Genera entrega/seleccion.csv para q=4, K-means y datos estandarizados.
+   Incluye los tres índices internos y las tres réplicas, con estas columnas:
+   replicate, index, status, k, ari, ami. Son nueve registros, incluidos los
+   que no estén disponibles. No elijas un candidato utilizando ARI o AMI.
+
+D. En RESPUESTAS.txt, interpreta el resultado en 5–10 líneas. Distingue lo que
+   observaste de lo que podrías concluir en general. Explica por qué elegir
+   cuatro grupos y recuperar las etiquetas son dos resultados diferentes.
+
+TAREA 4. REPRODUCIR DESDE LOS ARCHIVOS
+
+Vuelve a generar el resumen y la figura utilizando solo los archivos guardados
+y tu script de análisis, sin ejecutar clustering de nuevo. Conserva la primera
+versión y escribe la segunda en entrega/reproduccion/.
+
+Compara las tablas numéricas e indica si coinciden. No exigimos que los PDF
+tengan los mismos bytes. Anota el comando exacto, dónde lo ejecutaste y qué
+archivos necesita. Rellena los problemas y las valoraciones de RESPUESTAS.txt.
+
+QUÉ DEBES DEVOLVER
+
+Comprime la carpeta entrega y añade dentro RESPUESTAS.txt y TIEMPOS.csv.
+Nombre sugerido: P01-resultados.zip, sustituyendo P01 por tu código.
+
+Incluye la configuración, scripts o notebooks, datasets y sus JSON, particiones,
+manifiesto, resultados del runner, tablas, figuras, logs de ejecución y auditoría,
+versión de Python, dependencias y revisión Git. Conserva también los intentos
+fallidos relevantes. Si algún archivo no existe, explica por qué.
+
+No incluyas .venv, .git, credenciales, claves, datos personales ni el repositorio
+completo. Revisa los logs por si contienen tu nombre de usuario o rutas privadas
+y sustituye solo esos fragmentos por [RUTA_LOCAL], sin borrar el error técnico.
+En un notebook, elimina salidas que contengan información personal.
+
+Devuelve el ZIP al coordinador por el canal acordado. No lo subas a GitHub.
+Indica cualquier ayuda externa o desviación de estas instrucciones. Un paquete
+incompleto con una descripción clara del bloqueo también es un resultado útil.
