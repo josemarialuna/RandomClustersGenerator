@@ -13,3 +13,4 @@ research/results/validation-*/protocol.md -text
 # These manifests hash exact archived bytes, including native line endings.
 research/results/method-comparison-v1/* -text
 paper/method-comparison/* -text
+research/results/paired-workflow-v1/** -text

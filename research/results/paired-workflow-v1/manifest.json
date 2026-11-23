@@ -1,0 +1,41 @@
+{
+  "source_commit": "9e9560f52a995e53ceee0b61134f149edc102773",
+  "status": "complete",
+  "deep_audits": {
+    "balanced": {
+      "integrity": true,
+      "deep": true,
+      "fits": 8000,
+      "selections": 4800
+    },
+    "unequal": {
+      "integrity": true,
+      "deep": true,
+      "fits": 8000,
+      "selections": 4800
+    },
+    "anisotropic": {
+      "integrity": true,
+      "deep": true,
+      "fits": 8000,
+      "selections": 4800
+    }
+  },
+  "files": {
+    "environment.txt": "335b5b3c5fe11beb2bd9fa7db243cb7e76562ad2e0216129e97c35a14bbb73d9",
+    "experiments.zip": "eab1ad51a615f50492153b0fd43fc107fb1a6d055a7eb014a7a17b39b97f358e",
+    "operational/manifest.json": "cd785acde6af9eacaff850cd01a4c58163e80cd70d598f77df55085b36618a61",
+    "operational/summary.csv": "c5a89305d73a0f216a38b6c145e9b507741401a02260c9cc13772a8f93065950",
+    "operational/trials.csv": "af08ef0bddc993f13d6cc8b97a0dd1b3890c7f078c2fc6345b85de224c3af1bf",
+    "README.md": "1e64aac11c808636077180cffd80825feb6e4dfe9bb9b0f2d5e59415d602f3be",
+    "summary/fit_status.csv": "2a1d88d4065459b5dbc3d99fbd63094f9165f4a497d6929d6df33e1104ccf37d",
+    "summary/known_count.csv": "a7bd38fe7b770c4f1b8cccebf6ce56c541c7954aabfe4564266a8102026d636e",
+    "summary/paired_differences.csv": "fb88b951742615eb1d46dc58eb5c8f2e447cee46122f445babd365cad0aedf91",
+    "summary/paired_gallery.pdf": "fe3313a191d5d972fc9b3f1d2b858ca20c71bc3ab2121ad0971c54a11497ca0f",
+    "summary/paired_gallery.png": "c2210686461af18d45a970ddd94f50000aa0bda3b1ecf429a19357c39c1bf83a",
+    "summary/paired_recovery.pdf": "6ebdd7f92fca308ec8d024d53219c06636751bac92a987ab13cb594beab2dbd3",
+    "summary/paired_recovery.png": "3733593e9df5b380f0fbce5c98c91571b6d25bffad7485009176bf2e590b090d",
+    "summary/selection.csv": "5138fa9de917a69e2352f8af09dc713faf4ace76d790263409ae7579e2f8d87e",
+    "summary/summary.json": "7268d7481bd0da059f73c1d2403b70bb9f795bb3604a8b3fc8eae96117e765fb"
+  }
+}

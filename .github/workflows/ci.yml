@@ -66,6 +66,7 @@ jobs:
       - run: python paper/analyze_diagnostics.py --check
         working-directory: data/historical-evidence
       - run: python research/verify_method_comparison.py research/results/method-comparison-v1
+      - run: python research/verify_paired_archive.py research/results/paired-workflow-v1
       - run: python -m random_clusters.experiment examples/paired/quickstart.json data/paired-smoke
       - run: python -m random_clusters.experiment data/paired-smoke --audit --deep
       - run: |

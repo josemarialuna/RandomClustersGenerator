@@ -107,45 +107,67 @@ def main():
     fig.savefig(args.output / "paired_recovery.pdf")
     fig.savefig(args.output / "paired_recovery.png", dpi=150)
     plt.close(fig)
-    fig, axs = plt.subplots(2, 3, figsize=(9, 5.6), sharex=True, sharey=True)
+    # Replicate zero is fixed in the protocol. Show its strongest planned
+    # nuisance condition with a contingency table, rather than duplicate truth panels.
     archive = args.archives / "balanced"
-    for j, ci in enumerate((0, 1, 3)):
-        meta = json.loads(
-            (archive / "datasets" / f"family-0000-condition-{ci:03d}.json").read_text()
+    ci = 3
+    meta = json.loads((archive / "datasets" / f"family-0000-condition-{ci:03d}.json").read_text())
+    data = replay_paired(meta)
+    choice = next(
+        r
+        for r in selected
+        if r["scenario"] == "balanced"
+        and r["replicate"] == 0
+        and r["condition"] == ci
+        and r["method"] == "kmeans"
+        and r["preprocessing"] == "standardized"
+        and r["index"] == "silhouette"
+    )
+    if choice["status"] != "ok":
+        raise ValueError("The fixed gallery example has no available selection")
+    k = choice["k"]
+    labels = np.load(
+        archive / "partitions" / f"family-0000-condition-{ci:03d}-standardized-kmeans-{k}.npy"
+    )
+    fig, axs = plt.subplots(2, 2, figsize=(8, 6.6))
+    for ax, x, y, color, title, xlabel, ylabel in (
+        (axs[0, 0], data.X.s0, data.X.s1, data.y, "Generating components", "s0", "s1"),
+        (
+            axs[0, 1],
+            data.X.s0,
+            data.X.s1,
+            labels,
+            f"Selected partition: k={k}, ARI={choice['ari']:.3f}",
+            "s0",
+            "s1",
+        ),
+        (
+            axs[1, 0],
+            data.X.d0,
+            data.X.d1,
+            labels,
+            "Same partition, two nuisance coordinates",
+            "d0",
+            "d1",
+        ),
+    ):
+        ax.scatter(x, y, c=color, cmap="tab10", vmin=0, vmax=9, s=12, alpha=0.75)
+        ax.set(title=title, xlabel=xlabel, ylabel=ylabel)
+    counts = np.zeros((4, k), dtype=int)
+    np.add.at(counts, (data.y, labels), 1)
+    ax = axs[1, 1]
+    ax.imshow(counts, cmap="Blues", aspect="auto", vmin=0, vmax=50)
+    for (i, j), value in np.ndenumerate(counts):
+        ax.text(
+            j, i, str(value), ha="center", va="center", color="white" if value > 25 else "black"
         )
-        data = replay_paired(meta)
-        choice = next(
-            r
-            for r in selected
-            if r["scenario"] == "balanced"
-            and r["replicate"] == 0
-            and r["condition"] == ci
-            and r["method"] == "kmeans"
-            and r["preprocessing"] == "standardized"
-            and r["index"] == "silhouette"
-        )
-        for i in range(2):
-            ax = axs[i, j]
-            if i == 0:
-                labels = data.y
-                title = f"Generating labels, q={meta['condition']['noise']}"
-            elif choice["status"] == "ok":
-                k = choice["k"]
-                labels = np.load(
-                    archive
-                    / "partitions"
-                    / f"family-0000-condition-{ci:03d}-standardized-kmeans-{k}.npy"
-                )
-                title = f"Silhouette: k={k}, ARI={choice['ari']:.3f}"
-            else:
-                labels = np.zeros(len(data.y))
-                title = "Selection unavailable"
-            ax.scatter(data.X.s0, data.X.s1, c=labels, cmap="tab10", s=9, alpha=0.75)
-            ax.set_title(title)
-            if i == 1:
-                ax.set_xlabel("s0")
-            if j == 0:
-                ax.set_ylabel("s1")
+    ax.set(
+        xticks=range(k),
+        yticks=range(4),
+        xlabel="Selected cluster",
+        ylabel="Generating component",
+        title="Contingency counts (n=200)",
+    )
     fig.tight_layout()
     fig.savefig(args.output / "paired_gallery.pdf")
     fig.savefig(args.output / "paired_gallery.png", dpi=150)

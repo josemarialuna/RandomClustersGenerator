@@ -1,0 +1,4 @@
+scenario,status,0
+anisotropic,ok,8000
+balanced,ok,8000
+unequal,ok,8000
