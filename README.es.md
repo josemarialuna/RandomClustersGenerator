@@ -6,6 +6,18 @@ etiquetas reales y un JSON que describe cómo se generó.
 
 [English / documentación completa](README.md)
 
+## Diseñar experimentos emparejados (versión 1.1)
+
+La API `FamilyConfig` / `PairedFamily` permite fijar centros, tamaños desiguales
+y covarianzas. A partir de una familia puedes cambiar la dispersión o añadir
+variables de ruido conservando los componentes aleatorios documentados.
+Devuelve las variables, las etiquetas y los identificadores por separado.
+
+La [guía de tareas](docs/workflows.md) explica cómo generar una familia,
+ejecutar un experimento y auditar sus resultados. La
+[referencia de la API](docs/paired-api.md) detalla entradas, salidas y límites.
+Los comandos siguientes conservan el generador original por compatibilidad.
+
 ```text
 ENTRADA                         PROCESO                       SALIDA
 4 grupos                        Elegir centros distintos      demo.csv

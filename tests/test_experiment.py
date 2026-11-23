@@ -2,6 +2,9 @@ import json
 
 import pytest
 
+pytest.importorskip("sklearn")
+pytest.importorskip("threadpoolctl")
+
 from random_clusters.experiment import audit, run, select
 
 

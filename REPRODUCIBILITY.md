@@ -172,6 +172,16 @@ measures **generation and export**, not clustering at that size.
 
 ## Interpretation and support
 
+Historical extension checks include the original package initializer. Run
+`research/verify_extension.py` and `paper/analyze_diagnostics.py --check` at
+revision `3666d479f590236a32b34cceeb85163cf362ebd3`, as CI does in a separate
+checkout. A later API version legitimately changes that initializer. Do not
+update historical checksums to make an unrelated source revision pass.
+
+For version 1.1 paired experiments, follow [the task guide](docs/workflows.md)
+and `research/PAIRED_WORKFLOW_PROTOCOL.md`. These are separate experiments with
+their own source revision and archives.
+
 Independent families are the replication units. Conditions, starts and candidate
 counts within a family are paired, not independent observations. Approximate
 Student-t intervals are descriptive; conservative intervals are pointwise and

@@ -2,15 +2,15 @@ cff-version: 1.2.0
 message: "Please cite this software and record the exact commit and experimental configuration used."
 type: software
 title: RandomClustersGenerator
-version: 1.0.0
-date-released: 2026-09-29
+version: 1.1.0
+date-released: 2026-11-23
 authors:
   - family-names: Luna-Romera
     given-names: José María
     affiliation: Universidad de Sevilla
     email: jmluna@us.es
 repository-code: https://github.com/josemarialuna/RandomClustersGenerator
-url: https://github.com/josemarialuna/RandomClustersGenerator/tree/v1.0.0
+url: https://github.com/josemarialuna/RandomClustersGenerator
 license: MIT
 keywords:
   - clustering

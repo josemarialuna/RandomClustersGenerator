@@ -12,12 +12,14 @@ from random_clusters import FamilyConfig, PairedFamily, Condition
 from random_clusters.bundles import save_paired, verify_paired
 
 config = FamilyConfig(
-    sizes=(50, 100), centers=((0., 0.), (1., 1.)), seed=42,
-    covariances=(((1., 0.), (0., 1.)), ((2., .5), (.5, 1.))),
+    sizes=(50, 100),
+    centers=((0.0, 0.0), (1.0, 1.0)),
+    seed=42,
+    covariances=(((1.0, 0.0), (0.0, 1.0)), ((2.0, 0.5), (0.5, 1.0))),
 )
 family = PairedFamily(config)
-clean = family.dataset(Condition(scale=.1, noise=0))
-noisy = family.dataset(Condition(scale=.1, noise=8))
+clean = family.dataset(Condition(scale=0.1, noise=0))
+noisy = family.dataset(Condition(scale=0.1, noise=8))
 assert clean.X.equals(noisy.X[clean.X.columns])
 save_paired(noisy, Path("data/paired.csv"))
 print(verify_paired(Path("data/paired.csv"), regenerate=True))
