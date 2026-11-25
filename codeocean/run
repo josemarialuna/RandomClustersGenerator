@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+set -euo pipefail
+export OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1
+export MPLBACKEND=Agg PYTHONUNBUFFERED=1
+cd "$(dirname "$0")/.."
+export PYTHONPATH="$PWD/src${PYTHONPATH:+:$PYTHONPATH}"
+python codeocean/reproduce.py --output /results/reproduction "$@"
