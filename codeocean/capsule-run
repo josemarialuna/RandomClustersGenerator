@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+set -euo pipefail
+source_dir=$(mktemp -d)
+trap 'rm -rf "$source_dir"' EXIT
+python -m zipfile -e /code/source.zip "$source_dir"
+python -m zipfile -e /data/evidence.zip "$source_dir/research/results/paired-workflow-v1"
+bash "$source_dir/codeocean/run" "$@"
