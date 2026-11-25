@@ -42,9 +42,16 @@ def main():
         for p in (ROOT / "codeocean").iterdir()
         if p.is_file() and p.suffix != ".zip"
     ]
-    with zipfile.ZipFile(args.output / "source.zip", "w", zipfile.ZIP_DEFLATED) as archive:
+    evidence_prefix = "research/results/paired-workflow-v1/"
+    with (
+        zipfile.ZipFile(args.output / "source.zip", "w", zipfile.ZIP_DEFLATED) as archive,
+        zipfile.ZipFile(args.output / "evidence.zip", "w", zipfile.ZIP_DEFLATED) as evidence,
+    ):
         for name in sorted(set(selected)):
-            archive.write(ROOT / name, name)
+            if name.startswith(evidence_prefix):
+                evidence.write(ROOT / name, name.removeprefix(evidence_prefix))
+            else:
+                archive.write(ROOT / name, name)
     shutil.copyfile(ROOT / "codeocean/capsule-run", args.output / "run")
     shutil.copyfile(ROOT / "codeocean/README.md", args.output / "README.md")
     manifest = {

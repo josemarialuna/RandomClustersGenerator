@@ -48,7 +48,8 @@ python codeocean/package.py data/capsule-upload
 ```
 
 Upload the resulting `source.zip`, `run`, `README.md` and `source-manifest.json`
-to the capsule's `/code` directory. Copy `codeocean/postInstall` into the
+to the capsule's `/code` directory. Upload `evidence.zip` to `/data`.
+Copy `codeocean/postInstall` into the
 environment post-install script. The `run` file extracts the scoped source
 into a temporary directory, invokes the driver and cleans up that temporary
 directory after execution. Preserve the uploaded `run` content if the platform
@@ -56,5 +57,5 @@ offers to generate a replacement launcher. No network access is needed after
 the environment has been built.
 
 The source manifest records the SHA-256 of every packaged file. The packaging
-step includes current source, the paired examples and their frozen evidence,
+step separates current source and paired examples from their frozen evidence,
 without unrelated historical experiments or local environment files.
