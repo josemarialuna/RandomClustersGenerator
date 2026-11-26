@@ -6,6 +6,15 @@ independently validate a statistical conclusion or rerun every fitted model.
 The manuscript is authored and checkpointed in Overleaf. Experimental evidence
 is archived in this repository.
 
+## Published executable capsule
+
+For the current paired-workflow demonstration, open the
+[Code Ocean capsule](https://doi.org/10.24433/CO.6232710.v1) and select
+**Reproducible Run**. It regenerates all 600 datasets, recalculates metrics and
+selections from 24,000 saved partitions, rebuilds the figures and tables, and
+runs a fresh example and timing trials. Full model refitting is optional.
+The [capsule guide](codeocean/README.md) describes the outputs and local execution.
+
 ## New paired API (1.1)
 
 The 1.1 public workflow is documented in [docs/paired-api.md](docs/paired-api.md).

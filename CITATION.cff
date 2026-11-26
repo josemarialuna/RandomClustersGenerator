@@ -12,6 +12,20 @@ authors:
 repository-code: https://github.com/josemarialuna/RandomClustersGenerator
 url: https://github.com/josemarialuna/RandomClustersGenerator
 license: MIT
+references:
+  - type: software
+    title: "RandomClustersGenerator: reproducible paired clustering experiments"
+    authors:
+      - family-names: Luna-Romera
+        given-names: José María
+      - family-names: Rodríguez-López
+        given-names: Ana
+      - family-names: Riquelme-Santos
+        given-names: José C.
+    version: "1"
+    date-released: 2026-11-25
+    doi: 10.24433/CO.6232710.v1
+    url: https://codeocean.com/capsule/4ee6f214-dd67-4525-9763-21b0ffb7a5e6/
 keywords:
   - clustering
   - synthetic datasets

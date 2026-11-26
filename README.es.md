@@ -6,6 +6,12 @@ etiquetas reales y un JSON que describe cómo se generó.
 
 [English / documentación completa](README.md)
 
+La [cápsula publicada en Code Ocean](https://doi.org/10.24433/CO.6232710.v1)
+incluye el entorno ejecutable y los resultados preservados. Permite regenerar
+los 600 datasets y recalcular las métricas de las 24.000 particiones guardadas.
+El ajuste completo de los modelos es opcional. Consulta la
+[guía de la cápsula](codeocean/README.md) para conocer sus salidas.
+
 ## Diseñar experimentos emparejados (versión 1.1)
 
 La API `FamilyConfig` / `PairedFamily` permite fijar centros, tamaños desiguales
