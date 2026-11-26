@@ -13,7 +13,9 @@ with known cluster labels and a JSON file describing how it was generated.
 For the paired research studies, start with the English
 [reproduction guide](REPRODUCIBILITY.md). It separates quick archive checks from
 dataset regeneration and full model refitting. [Citation metadata](CITATION.cff)
-describe the software; no accepted article or publication DOI is implied.
+describe the software. The published [Code Ocean capsule](https://doi.org/10.24433/CO.6232710.v1)
+provides a ready-to-run reproduction environment and preserved results.
+See the [capsule guide](codeocean/README.md) for its scope and outputs.
 
 ```text
 INPUT                          GENERATION                    OUTPUT
@@ -353,8 +355,8 @@ Do not commit generated research datasets; `data/` is ignored.
 ## License and attribution
 
 [MIT License](LICENSE.txt). Created by José María Luna-Romera. `LICENSE` and
-`LICENSE.txt` contain the same license; the latter is included for SoftwareX's
-repository requirements.
+`LICENSE.txt` contain the same license. The published capsule uses MIT for code
+and CC BY 4.0 for data.
 
 Use [CITATION.cff](CITATION.cff) to cite the software and record the exact Git
 revision, parameters, seeds and dependency versions used. The manuscript is

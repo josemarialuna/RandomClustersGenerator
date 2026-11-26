@@ -1,5 +1,16 @@
 # Code Ocean reproduction
 
+**Published capsule, version 1:** [10.24433/CO.6232710.v1](https://doi.org/10.24433/CO.6232710.v1).
+The [public capsule](https://codeocean.com/capsule/4ee6f214-dd67-4525-9763-21b0ffb7a5e6/)
+was published on 25 November 2026 after Code Ocean verification.
+Open it and select **Reproducible Run** to execute the default workflow.
+Capsule code is licensed under MIT and capsule data under CC BY 4.0.
+
+Citation: José María Luna-Romera, Ana Rodríguez-López and José C. Riquelme-Santos
+(2026). *RandomClustersGenerator: reproducible paired clustering experiments*,
+version 1. Code Ocean. https://doi.org/10.24433/CO.6232710.v1.
+This DOI identifies the executable capsule, not a journal article.
+
 Use Python 3.12.4 with the pinned packages in `codeocean/postInstall`.
 These scientific package versions match `research/environment-paired-workflow.txt`.
 The capsule imports the source package using `PYTHONPATH`.
